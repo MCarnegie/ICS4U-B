@@ -186,6 +186,7 @@ a:visited{
 
 .my-list li:first-child{
 	background: red;
+  
 }
 
 .my-list li:last-child{
