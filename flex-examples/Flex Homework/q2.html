@@ -1,0 +1,37 @@
+/*
+Exercise 2: Centered Box
+	· Create a Flexbox layout with a container of 300 pixels by 300 pixels.
+	· Inside the container, place a single box with a width and height of 150 pixels.
+Use Flexbox to center the box both vertically and horizontally within the container.
+*/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>q2</title>
+    <style>
+        .container{
+            display: flex;
+            width:300px;
+            height:300px;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
+        }
+
+        .box{
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+    </div>
+</body>
+</html>
