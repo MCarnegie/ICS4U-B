@@ -1,0 +1,13 @@
+.grid-container{
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr; /*creates 3 colums that are 1 fraction of the screen*/
+    grid-template-rows: 1fr 1fr; /*creates 2 colums that are 1 fraction of the screen*/
+    gap: 10px;/*creates a 10 px gap between items*/
+}
+
+.grid-item{
+    background-color: red;
+    text-align: center;
+    padding: 5%;
+    border: 5px solid blue;
+}

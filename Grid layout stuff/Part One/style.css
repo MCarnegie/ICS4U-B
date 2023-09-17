@@ -1,0 +1,13 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 50px; /* Three columns */
+    grid-template-rows: 50px 50px 50px 25px;      /* Three rows */
+    grid-gap: 10px;  /*gap between cells*/ 
+  }
+  
+  .grid-item {
+    background-color: lightblue;
+      padding: 10px;
+      border: 1px solid gray;
+  }
+  
