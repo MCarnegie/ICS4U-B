@@ -25,6 +25,7 @@ header h1{
     float: left;
     font-size: 30px;
     margin: auto;
+ 
 
 }
 
@@ -90,11 +91,12 @@ footer{
     background-color:coral;
     text-align: center;
 }
-@media (max-width:768px){
+@media (max-width:968px){
     header{
         float: none;
         text-align: center;
         width:100%;
+        flex-direction: column;
     }
 
    
