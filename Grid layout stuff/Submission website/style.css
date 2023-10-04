@@ -48,7 +48,6 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(./imgs/future.jpg) center;
     height: 50%;
     padding-bottom: 10%;
 }
