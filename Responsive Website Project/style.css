@@ -1,9 +1,9 @@
+/* Global stuff */
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     padding: 0;
     margin:0;
-    /*background-color:#fffdd0;*/
     
     
 }
@@ -18,6 +18,9 @@ a:hover{
     font-weight: bold;
 }
 
+.button:hover{
+    background-color: red;
+}
 
 header{
     display: flex;
@@ -55,7 +58,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    min-height: 639px;
 }
 
 #current-page{
@@ -70,38 +73,7 @@ main{
     margin-bottom: 3%;  
     grid-gap: 10px;  
     text-align: center;
-
-}
-
-#home{
-    grid-template-columns: auto auto; 
-    grid-template-rows: auto auto auto; 
     
-}
-
-#Beginning-main{
-    min-height: 639px;
-    background: url(./imgs/minecraft-tree.gif);
-}
-
-#Beginning-card-container{
-    grid-template-columns: repeat(3, auto); 
-    grid-template-rows: repeat(3, auto);
-}
-
-#Beginning-title{
-    grid-column-start: 1;
-    grid-column-end: 4;
-    
-}
-
-#Beginning-link{
-    color: black;
-    text-decoration: underline;
-}
-
-#main-home{
-    background: url(./imgs/minecraft-minecraft-menu.gif);  
 }
 
 .card{
@@ -115,43 +87,35 @@ main{
     box-shadow: 5px 5px;
 }
 
-
-#title{
-    width: auto;
-    font-size: 30px;
-    padding-top: 30%;
-    text-align: center;
-    grid-row-start: 1;
-    grid-row-end: 4;
-    
-}
-
 footer{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 115px;
-    padding-top: 1.1%;
     bottom: 0;
-    background-color: #EEA47F;
     border: 3px solid black ;
-    
+    background-color: #A3AE7E;
    
    
 }
 
-#Beginning-footer{
-    padding-top: 0%;
-    background: url(./imgs/minecraft-tree.gif);
-    border: none;
+.button{
+	background-color: #333;
+	color: #fff;
+	padding: 10px 15px;
+	border: none;
+    width: 300px;
 }
 
+/* Index stuff */
 
 .newsletter{
+    display: inline;
     padding: 20px;
 }
 
 .newsletter  .news-group{
+    display: inline;
     padding-bottom: 15px;
 }
 
@@ -168,20 +132,162 @@ footer h1{
 	width: 280px;
 }
 
-.button{
-	background-color: #333;
-	color: #fff;
-	padding: 10px 15px;
-	border: none;
-    width: 300px;
+#home{
+    grid-template-columns: auto auto; 
+    grid-template-rows: auto auto auto; 
+    
 }
 
-@media (max-width:1068px){
+#main-home{
+    background: url(./imgs/minecraft-minecraft-menu.gif);  
+    min-height: 738px;
+    
+}
+
+#title{
+    width: auto;
+    font-size: 30px;
+    padding-top: 30%;
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    
+}
+
+/* Beginning stuff */
+
+
+#Beginning-main{
+    background: url(./imgs/minecraft-tree.gif);
+}
+
+#Beginning-card-container{
+    grid-template-columns: repeat(3, auto); 
+    grid-template-rows: repeat(3, auto);
+}
+
+#Beginning-footer{
+    padding-top: 0%;
+    background: url(./imgs/minecraft-tree.gif);
+    border: none;
+}
+
+#Beginning-title{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    
+}
+
+#Beginning-link{
+    color: black;
+    text-decoration: underline;
+}
+
+/* Village stuff */
+
+#Village-main{
+    background-image: url(./imgs/villagers.gif);
+    min-height: 678px;
+}
+
+#Village-card-container{
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+}
+
+#Village-footer{
+    padding: 0%;
+    margin: 0px;
+    max-height: 175px;
+    background-color: #EEA47F;
+}
+
+
+#p1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#p2{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#list{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    text-decoration: underline;
+}
+
+#list-item{
+    flex-direction: column;
+    display: block;
+}
+
+
+/*nether stuff*/
+
+#Nether-main{
+    background-image: url(./imgs/nether.gif);
+}
+
+#Nether-card-container{
+    grid-template-columns: repeat(5, auto);
+    grid-template-rows: repeat(2, auto);
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+
+#b2{
+    grid-column-start: 2;
+    grid-column-end:3;
+    grid-row-start: 2;
+    grid-row-end:3;
+}
+
+#b3{
+    grid-column-start: 3;
+    grid-column-end:4;
+}
+
+#b4{
+    grid-column-start: 4;
+    grid-column-end:5;
+    grid-row-start: 2;
+    grid-row-end:3;
+}
+
+#b5{
+    grid-column-start: 5;
+    grid-column-end:6;
+}
+
+
+#Nether-footer{
+    padding: 0%;
+    margin: 0px;
+    max-height: 138px;
+    background-color: #8b0000;
+}
+ 
+/* End stuff */
+
+
+@media (max-width:1330px){
     header{
         float: none;
         text-align: center;
         width:100%;
         flex-direction: column;
+    }
+
+    li{
+        display: block;
     }
 
     #home{
@@ -205,6 +311,75 @@ footer h1{
         grid-column-start: 1;
         grid-column-end: 1;
         
+    }
+
+    #Village-card-container{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3,auto);
+        
+    }
+    
+    #p1{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    
+    #p2{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 5;
+        
+    }
+    
+    #list{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 5;
+        grid-row-end: 7;
+        
+    }
+
+    #Nether-card-container{
+        grid-template-columns:  auto;
+        grid-template-rows: repeat(5, auto);
+    }
+    
+    #b1{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end:2;
+    }
+    
+    #b2{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end:3;
+    }
+    
+    #b3{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end:4;
+    }
+    
+    #b4{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 5;
+        grid-row-end:6;
+    }
+    
+    #b5{
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 7;
+        grid-row-end:8;
     }
     
 
