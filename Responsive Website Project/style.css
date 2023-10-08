@@ -1,17 +1,22 @@
 /* Global stuff */
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Times New Roman', Times, serif;
     font-size: 15px;
     padding: 0;
     margin:0;
+}
+
+li a{
+    text-decoration: none;
+    color: black;
     
-    
+    padding: 10px;
+
 }
 
 a{
-    text-decoration: none;
-    color: ivory;
-
+    
+    color: black; 
 }
 
 a:hover{
@@ -19,40 +24,107 @@ a:hover{
 }
 
 .button:hover{
-    background-color: red;
+    background-color: lightgray;
 }
 
 header{
     display: flex;
     align-items: center;
+    justify-content: space-around;
     border: 2px solid black;
-    background-color:  #4161E1;
-    overflow: hidden;
+    background-color:  white;
     min-height: 100px;
-    color: ivory;
+    color: black;
+   
 }
+
 
 header h1{
     float: left;
-    margin: auto;
-    text-decoration: underline;
+    margin: auto auto auto 5%;
+
 }
 
 ul{
     font-size: 25px;
     margin: 0;
     padding: 20px;
+    
+
+}
+
+#h{
+    display: inline;
 }
 
 li{
-    display: inline;
     padding: 0 20px 0 20px;
 }
 
-.navbar{
-    float: right;
-    margin: auto;
+.border{
+    border-left: 3px solid black;
+    border-right: 3px solid black;
 }
+
+.navbar{
+    background: rgb(128,128,128, .9);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    min-width: 300px;
+    width: auto;
+    top: -250px;
+    right: 0;
+    position: absolute;
+    transform: translateY(353px);
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.nav-links li {
+    margin: 15px 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+
+    font-size: 1.5rem;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-icon {
+    background-color: black;
+    width: 40px;
+    height: 30px;
+    top: 15px;
+    float: right;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0 40px 0 20px;
+}
+
+.nav-toggle:checked + .nav-icon::before {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.nav-toggle:checked + .nav-icon::after {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.nav-toggle:checked ~ .navbar {
+    transform: translateX(0);
+}
+
 
 main{
     display: flex;
@@ -67,11 +139,9 @@ main{
 
 .card-container{
     display: grid;
+    grid-gap: 10px;  
     margin-right: 15%;
     margin-left: 15%;
-    margin-top:3%;
-    margin-bottom: 3%;  
-    grid-gap: 10px;  
     text-align: center;
     
 }
@@ -84,7 +154,9 @@ main{
     font-size: 20px;
     padding: 20px;
     overflow:visible;
-    box-shadow: 5px 5px;
+    /*box-shadow: 5px 5px black;*/
+    border-radius: 15px;
+    color: black;
 }
 
 footer{
@@ -109,23 +181,52 @@ footer{
 
 /* Index stuff */
 
+#options{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#options a{
+   text-decoration: none;
+}
+
+#pic{
+    border-radius: 0%;
+    height: auto;
+    width: 200px;
+    
+}
+
+img{
+    height: 200px;
+    width: 200px;
+}
+
+
 .newsletter{
-    display: inline;
+    display: block;
     padding: 20px;
+
+    
 }
 
 .newsletter  .news-group{
-    display: inline;
+    display: flex;
     padding-bottom: 15px;
+
 }
 
-.newsletter label{
+#form-card{
     display: block;
 }
 
-footer h1{
-    padding-left: 12px;
+#form-card h1{
+    margin-left: 20px;
 }
+
 
 .newsletter input[type="text"], .newsletter textarea{
 	padding: 8px;
@@ -133,254 +234,42 @@ footer h1{
 }
 
 #home{
-    grid-template-columns: auto auto; 
+    margin-top: 5%;
+    grid-template-columns: auto ; 
     grid-template-rows: auto auto auto; 
-    
+
 }
 
 #main-home{
-    background: url(./imgs/minecraft-minecraft-menu.gif);  
+    background: url(./imgs/homepage.jpg);  
     min-height: 738px;
-    
+    flex-direction: column;    
 }
 
 #title{
     width: auto;
     font-size: 30px;
-    padding-top: 30%;
     text-align: center;
-    grid-row-start: 1;
-    grid-row-end: 4;
     
 }
 
 /* Beginning stuff */
 
 
-#Beginning-main{
-    background: url(./imgs/minecraft-tree.gif);
-}
-
-#Beginning-card-container{
-    grid-template-columns: repeat(3, auto); 
-    grid-template-rows: repeat(3, auto);
-}
-
-#Beginning-footer{
-    padding-top: 0%;
-    background: url(./imgs/minecraft-tree.gif);
-    border: none;
-}
-
-#Beginning-title{
-    grid-column-start: 1;
-    grid-column-end: 4;
-    
-}
-
-#Beginning-link{
-    color: black;
-    text-decoration: underline;
-}
-
 /* Village stuff */
 
-#Village-main{
-    background-image: url(./imgs/villagers.gif);
-    min-height: 678px;
-}
 
-#Village-card-container{
-    grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(3, auto);
-}
-
-#Village-footer{
-    padding: 0%;
-    margin: 0px;
-    max-height: 175px;
-    background-color: #EEA47F;
-}
-
-
-#p1{
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-
-#p2{
-    grid-row-start: 2;
-    grid-row-end: 4;
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
-
-#list{
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 4;
-    text-decoration: underline;
-}
-
-#list-item{
-    flex-direction: column;
-    display: block;
-}
 
 
 /*nether stuff*/
 
-#Nether-main{
-    background-image: url(./imgs/nether.gif);
-}
 
-#Nether-card-container{
-    grid-template-columns: repeat(5, auto);
-    grid-template-rows: repeat(2, auto);
-    margin-right: 5%;
-    margin-left: 5%;
-}
-
-
-#b2{
-    grid-column-start: 2;
-    grid-column-end:3;
-    grid-row-start: 2;
-    grid-row-end:3;
-}
-
-#b3{
-    grid-column-start: 3;
-    grid-column-end:4;
-}
-
-#b4{
-    grid-column-start: 4;
-    grid-column-end:5;
-    grid-row-start: 2;
-    grid-row-end:3;
-}
-
-#b5{
-    grid-column-start: 5;
-    grid-column-end:6;
-}
-
-
-#Nether-footer{
-    padding: 0%;
-    margin: 0px;
-    max-height: 138px;
-    background-color: #8b0000;
-}
  
 /* End stuff */
 
 
 @media (max-width:1330px){
-    header{
-        float: none;
-        text-align: center;
-        width:100%;
-        flex-direction: column;
-    }
-
-    li{
-        display: block;
-    }
-
-    #home{
-        grid-template-columns: auto; 
-        grid-template-rows: auto auto auto auto;    
-    }
-
-    #title{
-        grid-row-start: 1;
-        grid-row-end: 1;
-        padding-top: 0%;
-    }
-
-    #Beginning-card-container{
-        flex-direction: column;
-        grid-template-columns: auto; 
-        grid-template-rows: repeat(8,auto);
-    }
-
-    #Beginning-title{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        
-    }
-
-    #Village-card-container{
-        grid-template-columns: auto;
-        grid-template-rows: repeat(3,auto);
-        
-    }
-    
-    #p1{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 1;
-        grid-row-end: 3;
-    }
-    
-    #p2{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 3;
-        grid-row-end: 5;
-        
-    }
-    
-    #list{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 5;
-        grid-row-end: 7;
-        
-    }
-
-    #Nether-card-container{
-        grid-template-columns:  auto;
-        grid-template-rows: repeat(5, auto);
-    }
-    
-    #b1{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 1;
-        grid-row-end:2;
-    }
-    
-    #b2{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 2;
-        grid-row-end:3;
-    }
-    
-    #b3{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 3;
-        grid-row-end:4;
-    }
-    
-    #b4{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 5;
-        grid-row-end:6;
-    }
-    
-    #b5{
-        grid-column-start: 1;
-        grid-column-end: 1;
-        grid-row-start: 7;
-        grid-row-end:8;
-    }
+   
     
 
 

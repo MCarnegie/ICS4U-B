@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Guide|Home</title>
+    <title>Cooking Lessons|Home</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <header>
-        <h1>Minecraft: Complete guide</h1>
-        <div class="navbar">
-            <ul>
-                <li id="current-page"><a href="index.html">Home</a></li>
-                <li><a href="Beginning.html">Beginning</a></li>
-                <li><a href="Village.html">In the village</a></li>
-                <li><a href="Nether.html">In the nether</a></li>
-                <li><a href="Ender.html">killing the dragon</a></li>
-             </ul>
-        </div>
+       <h1>Cooking Lessons With Marco</h1>
+        <ul>
+            <li id="h"><a href="#">Home</a></li>
+            <li class = "border" id="h"><a href="#">Sign in</a></li>
+        </ul>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-icon"></label>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Breakfest</a></li>
+                <li><a href="#">Lunch</a></li>
+                <li><a href="#">Dinner</a></li>
+                <li><a href="#">Desserts</a></li>
+            </ul>
+        </nav>
+    
         
     </header>
 
@@ -26,23 +33,35 @@
             <div class="card" id="title"><h1>What you will learn</h1></div>
             <div class="card"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quibusdam assumenda deleniti, reiciendis soluta in, fuga cumque accusamus id ipsam modi, voluptates ratione culpa quidem? Perspiciatis provident minima quos corrupti!</p></div>
             <div class="card"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quibusdam assumenda deleniti, reiciendis soluta in, fuga cumque accusamus id ipsam modi, voluptates ratione culpa quidem? Perspiciatis provident minima quos corrupti!</p></div>
-            <div class="card"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quibusdam assumenda deleniti, reiciendis soluta in, fuga cumque accusamus id ipsam modi, voluptates ratione culpa quidem? Perspiciatis provident minima quos corrupti!</p></div>
         </div>
+   
+       <div class="card-container" id="options">
+           <div class="card" id="pic"><a href=""><img src="./imgs/breakfest.jpg" alt=""><h2>Breakfest</h2></a></div>
+           <div class="card" id="pic"><a href=""><img src="./imgs/download.jfif" alt=""><h2>Lunch</h2></a></div>
+           <div class="card" id="pic"><a href=""><img src="./imgs/creamy-tomato-chicken-pasta-1-20.jpg" alt=""><h2>Dinner</h2></a></div>
+           <div class="card" id="pic"><a href=""><img src="./imgs/dessert.jpg" alt=""><h2>Desserts</h2></a></div>
+        
+       </div>
+           
+
+        
     </main>
     
     <footer>
-        <h1>Join our newsletter!</h1>
-        <form class="newsletter" action="">
-            <div class="news-group">
-              
-                <input type="text" name="name" placeholder="Enter your Name">
-            </div>
-            <div class="news-group">
-            
-                <input type="text" name="email" placeholder="Enter your Email">
-            </div>
-            <input class="button" type="submit" value="Submit" name="">
-        </form>
+     
+            <h1>Join our newsletter!</h1>
+             <form class="newsletter" action="">
+                <div class="news-group">
+                
+                    <input type="text" name="name" placeholder="Enter your Name">
+                </div>
+                <div class="news-group">
+                
+                    <input type="text" name="email" placeholder="Enter your Email">
+                </div>
+                <input class="button" type="submit" value="Submit" name="">
+            </form>
+     
     </footer>
 </body>
 </html>
