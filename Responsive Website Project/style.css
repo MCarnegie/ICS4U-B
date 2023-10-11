@@ -24,7 +24,7 @@ a:hover{
 }
 
 .button:hover{
-    background-color: lightgray;
+    background-color: #d4af37;
 }
 
 header{
@@ -102,8 +102,11 @@ li{
     display: none;
 }
 
+
+
 .nav-icon {
-    background-color: black;
+    background: url(./imgs/hamburgericon.png) no-repeat;
+    background-size: contain;
     width: 40px;
     height: 30px;
     top: 15px;
@@ -111,6 +114,11 @@ li{
     cursor: pointer;
     z-index: 2;
     margin: 0 40px 0 20px;
+}
+
+.nav-icon:hover{
+    width: 42px;
+    height: 32px;
 }
 
 .nav-toggle:checked + .nav-icon::before {
@@ -159,6 +167,7 @@ main{
     color: black;
 }
 
+
 footer{
     display: flex;
     justify-content: center;
@@ -166,7 +175,8 @@ footer{
     min-height: 115px;
     bottom: 0;
     border: 3px solid black ;
-    background-color: #A3AE7E;
+    background-color: grey;
+    color: white;
    
    
 }
@@ -181,7 +191,7 @@ footer{
 
 /* Index stuff */
 
-#options{
+.options{
     display: grid;
     grid-template-columns: repeat(4,auto);
     grid-template-rows: auto;
@@ -189,11 +199,15 @@ footer{
     margin-bottom: 5%;
 }
 
-#options a{
+.options a{
    text-decoration: none;
 }
 
-#pic{
+.pic:hover{
+    opacity: .85;
+}
+
+.pic{
     border-radius: 0%;
     height: auto;
     width: 200px;
@@ -205,6 +219,11 @@ img{
     width: 200px;
 }
 
+.section1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .newsletter{
     display: block;
@@ -254,6 +273,31 @@ img{
 }
 
 /* Beginning stuff */
+#main-breakfest{
+    flex-direction: column;
+    min-height: 678px;
+}
+
+#breakfest-options{
+   
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: auto auto;
+}
+
+#breakfest-title{
+   grid-row-start: 1;
+   grid-row-end: 1;
+   grid-column-start: 1;
+   grid-column-end: 5;
+   
+}
+
+#breakfest-body{
+    background: url(./imgs/breakfast-family.jpg) no-repeat;
+    background-size:cover;
+}
+
+
 
 
 /* Village stuff */
@@ -266,6 +310,36 @@ img{
 
  
 /* End stuff */
+
+/*login suff*/
+.login{
+    display: block;
+    padding: 20px;
+
+    
+}
+
+.login  .login-group{
+    display: flex;
+    padding-bottom: 15px;
+    
+
+}
+
+.login input[type="text"], .login textarea{
+	padding: 8px;
+	width: 280px;
+}
+
+
+#login-link{
+    color: blue;
+}
+
+#login-body{
+    background: url(./imgs/loginbcimage.jpg) no-repeat;
+    background-size: cover;
+}
 
 
 @media (max-width:1330px){
