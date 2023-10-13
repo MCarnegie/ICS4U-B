@@ -204,6 +204,11 @@ footer{
     padding-top: 0%;
 }
 
+#index-body{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imgs/homepage.jpg) no-repeat;
+    background-size: cover;
+}
+
 .options a{
    text-decoration: none;
 }
@@ -222,13 +227,13 @@ footer{
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
+    overflow: hidden;
 }
 
 
 img{
     height: 250px;
     width: 250px;
-    
 }
 
 #socials{
@@ -285,7 +290,6 @@ img{
 }
 
 #main-home{
-    background: url(./imgs/homepage.jpg);  
     min-height: 738px;
     flex-direction: column;    
 }
@@ -297,28 +301,37 @@ img{
     
 }
 
-/* Beginning stuff */
+/* breakfest stuff */
 #main-breakfest{
-    flex-direction: column;
+    flex-direction: row;
     min-height: 678px;
+    justify-content: space-evenly;
 }
 
 #breakfest-options{
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: auto auto;
     grid-template-rows: auto auto;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #breakfest-title{
    grid-row-start: 1;
-   grid-row-end: 1;
-   grid-column-start: 1;
-   grid-column-end: 5;
-
+   grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
    
 }
 
+.items{
+    flex-direction: row;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
 #breakfest-body{
-    background: url(./imgs/breakfast-family.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imgs/breakfast-family.jpg) no-repeat;
     background-size:cover;
 }
 
@@ -326,7 +339,8 @@ img{
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
     margin-top: 2%;
-    
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
  #featured-meal .pic{
@@ -334,15 +348,49 @@ img{
    grid-row-end: 3;
    grid-column-start: 2;
    grid-column-end: 3;
+   
 } 
 
 #featured-title{
     max-width: 500px;
     grid-column-start: 1;
     grid-column-end: 4;
+    
  } 
 
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
 
+#section1{
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#section2{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#section3{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#section4{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
 
 /* lunch stuff */
 #lunch-container{
@@ -379,21 +427,22 @@ img{
     display: none;
 }
 
+
 #main-lunch{
     flex-direction: row;
     min-height: 678px;
 }
 
+
+
 #lunch-body{
-    background: url(./imgs/lunch\ eating\ image.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imgs/lunch\ eating\ image.jpg) no-repeat;
     background-size:cover;
 }
 
-/*nether stuff*/
+/*Dinner stuff*/
 
 
- 
-/* End stuff */
 
 /*login suff*/
 .login{
