@@ -9,36 +9,35 @@
 </head>
 <body id="index-body">
     <header>
-       <h1>Cooking Lessons With Marco</h1>
-        <ul>
+        <h1>Cooking Lessons With Marco</h1>
+        <ul>   
             <li id="h"><a href="index.html">Home</a></li>
             <li class = "border" id="h"><a href="Login.html">Sign in</a></li>
+            <li id="h">
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-icon"></label>
+                <nav class="navbar">
+                    <ul class="nav-links">
+                        <li><a href="Breakfest.html">Breakfast</a></li>
+                        <li><a href="Lunch.html">Lunch</a></li>
+                        <li><a href="Dinner.html">Dinner</a></li>
+                        <!-- <li><a href="Dessert.html">Desserts</a></li> -->
+                    </ul>
+                </nav>
+            </li>
         </ul>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
-        <label for="nav-toggle" class="nav-icon"></label>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="Breakfest.html">Breakfest</a></li>
-                <li><a href="Lunch.html">Lunch</a></li>
-                <li><a href="Dinner.html">Dinner</a></li>
-                <!-- <li><a href="Dessert.html">Desserts</a></li> -->
-            </ul>
-        </nav>
     
         
     </header>
 
     <main id="main-home">
-        <div class="card-container" id="home">
-            <div class="card" id="title"><h1>What you will learn</h1></div>
-            <div class="card"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quibusdam assumenda deleniti, reiciendis soluta in, fuga cumque accusamus id ipsam modi, voluptates ratione culpa quidem? Perspiciatis provident minima quos corrupti!</p></div>
-            <div class="card"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quibusdam assumenda deleniti, reiciendis soluta in, fuga cumque accusamus id ipsam modi, voluptates ratione culpa quidem? Perspiciatis provident minima quos corrupti!</p></div>
-        </div>
+
+        <h1 id="home-title">Welcome to a world of cooking possibilites</h1>
    
        <div class="card-container options" id="main-options">
-          <div class="card pic" id="pic"><a href="Breakfest.html"><img src="./imgs/breakfest.jpg" alt=""><h2>Breakfest</h2></a></div> 
-           <div class="card pic" id="pic"><a href="Lunch.html"><img src="./imgs/download.jfif" alt=""><h2>Lunch</h2></a></div>
-           <div class="card pic" id="pic"><a href="Dinner.html"><img src="./imgs/creamy-tomato-chicken-pasta-1-20.jpg" alt=""><h2>Dinner</h2></a></div>
+           <div class="holder" id="holder1"><div class="card pic"><a href="Breakfest.html"><img src="./imgs/breakfest.jpg" alt=""></a></div> <div class="heading"><h2>Breakfast</h2></div></div> 
+           <div class="holder" id="holder1"><div class="card pic"><a href="Lunch.html"><img src="./imgs/download.jfif" alt=""></a></div> <div class="heading"><h2>Lunch</h2></div></div>
+           <div class="holder" id="holder1"><div class="card pic"><a href="Dinner.html"><img src="./imgs/creamy-tomato-chicken-pasta-1-20.jpg" alt=""></a></div> <div class="heading"><h2>Dinner</h2></div></div>
            <!-- <div class="card pic" id="pic"><a href="Dessert.html"><img src="./imgs/dessert.jpg" alt=""><h2>Desserts</h2></a></div> -->
        </div>
         
