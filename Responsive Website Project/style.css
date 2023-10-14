@@ -1,4 +1,6 @@
-/* Global stuff */
+/* Global Things */
+ 
+/*Sets fonts, general font size, and removes pre made padding and margin */
 body{
     font-family:'Times New Roman', Times, serif;
     font-size: 15px;
@@ -6,6 +8,7 @@ body{
     margin:0;
 }
 
+/*removes text decorations on links in lists, makes them black, and adds some padding*/
 li a{
     text-decoration: none;
     color: black;
@@ -14,6 +17,7 @@ li a{
 
 }
 
+/*makes a container that centers content and has a relative position*/
 .holder{
     display: flex;
     justify-content: center;
@@ -21,14 +25,17 @@ li a{
     position: relative;
 }
 
+/*creates the title for the differnt images with a 
+minimum height, set font size, adjustments to things inside, and with a differnt margin and padding
+to contents*/
 .heading{
     font-size: 14px;
     height: auto;
     min-height: 40px;
-    position: absolute; /* Change to absolute */
-    bottom: 0%; /* Position at the bottom */
+    position: absolute; 
+    bottom: 0%; 
     transform: translateY(40%); 
-    width: 50%; /* Center horizontally */
+    width: 50%; 
     text-align: center;
     background-color: #edb654;
     margin-top: 0;
@@ -36,16 +43,12 @@ li a{
     
 }
 
-#lunch-holder{
-    margin-bottom: 15px;
-}
-
-
+/*turns all links black*/
 a{
-    
     color: black; 
 }
 
+/*when hovering over links, it makes them bold*/
 a:hover{
     font-weight: bold;
 }
@@ -58,6 +61,8 @@ h1{
     color: #7c365E;
 }
 
+/*makes adjustments to the header of the webpage like creating space
+chaning colours and making a border*/
 header{
     display: flex;
     align-items: center;
@@ -69,13 +74,14 @@ header{
    
 }
 
-
+/*adjustments to h1s in the header*/
 header h1{
     float: left;
     margin: auto auto auto 5%;
 
 }
 
+/*adjustments to ul's in genral*/
 ul{
     font-size: 25px;
     margin: 0;
@@ -84,19 +90,23 @@ ul{
 
 }
 
+/*makes contents in the navbar display inline*/
 #h{
     display: inline;
 }
 
+/*adds basic padding to lists*/
 li{
     padding: 0 20px 0 20px;
 }
 
+/*adds a border to the left and right on an element*/
 .border{
     border-left: 3px solid black;
     border-right: 3px solid black;
 }
 
+/*creates the page when you click the burger stack*/
 .navbar{
     background: rgb(128,128,128, .9);
     border-radius: 8px;
@@ -113,16 +123,19 @@ li{
  
 }
 
+/*margin and padding to links inside the burger stack with no list style*/
 .nav-links {
     list-style: none;
     padding: 0;
     margin: 20px 0;
 }
 
+/*adding margins to lis in the hamburger stack list*/
 .nav-links li {
     margin: 15px 0;
 }
 
+/*styling the links in the hamburger stack*/
 .nav-links a {
     text-decoration: none;
     color: #fff;
@@ -130,10 +143,12 @@ li{
     font-size: 1.5rem;
 }
 
+/*hides the checkmark for the burger stack*/
 .nav-toggle {
     display: none;
 }
 
+/*creates the icon for the stack*/
 .nav-icon {
     background: url(./imgs/hamburgericon.png) no-repeat;
     background-size: contain;
@@ -143,14 +158,15 @@ li{
     float: right;
     cursor: pointer;
     z-index: 2;
-    /* margin: 0 40px 0 20px; */
 }
 
+/*increases the size of the icon when you hover over it*/
 .nav-icon:hover{
     width: 42px;
     height: 32px;
 }
 
+/*makes the burger stack work by unchecking and checking the checkbox*/
 .nav-toggle:checked + .nav-icon::before {
     transform: translateY(10px) rotate(45deg);
 }
@@ -163,7 +179,7 @@ li{
     transform: translateX(0);
 }
 
-
+/*aligns items in the main to the center and makes the main a minimum height*/
 main{
     display: flex;
     justify-content: center;
@@ -171,10 +187,7 @@ main{
     min-height: 639px;
 }
 
-#current-page{
-    font-weight: bold;
-}
-
+/*makes a container for grids*/
 .card-container{
     display: grid;
     grid-gap: 10px;  
@@ -182,11 +195,10 @@ main{
     
 }
 
+/*creates a background for elements and is also used for organization in grids*/
 .card{
     background-color: white;
     border: 1px solid gray;
-    /* height: auto;
-    max-height: 250px; */
     width: auto;
     font-size: 20px;
     padding: 20px 20px 0px 20px;
@@ -198,7 +210,7 @@ main{
     
 }
 
-
+/*creates the footer of the webpage*/
 footer{
     display: flex;
     justify-content:space-evenly;
@@ -213,8 +225,7 @@ footer{
    
 }
 
-
-
+/*creates a button used for forms*/
 .button{
 	background-color: #edb654;
 	color: #fff;
@@ -223,8 +234,14 @@ footer{
     width: 300px;
 }
 
+/*makes the button change cover when hovered over*/
+.button:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #edb654;
+}
+
 /* Index stuff */
 
+/*creates a container for index*/
 .options{
     display: grid;
     grid-template-columns: repeat(4,auto);
@@ -234,25 +251,30 @@ footer{
     padding-top: 0%;
 }
 
+/*creates the background for the main page*/
 #index-body{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imgs/homepage.jpg) no-repeat;
     background-size: cover;
 }
 
+/*creates the title for the main page*/
 #home-title{
     color: white;
     font-size: 80px;
     text-shadow: 2px 2px 4px black;
 }
 
+/*links in the options container dont have text decoration*/
 .options a{
    text-decoration: none;
 }
 
+/*when you hover over the picture with text is lowers the opacity*/
 .holder:hover{
     opacity: .85;
 }
 
+/*creates a preset for the pictures used*/
 .pic{
     border-radius: 5% 5% 0 0;
     height: auto;
@@ -261,26 +283,24 @@ footer{
     width: auto;
     justify-content: center;
     align-items: center;
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
+    padding: 0;
     overflow: hidden;
 }
 
-
-
+/*makes every image 250pxx250px*/
 img{
     height: 250px;
     width: 250px;
 }
 
+/*sets the size and padding for the icons of social medias*/
 #socials{
     height: 40px;
     padding: 0 20px 0 20px;
     width: 40px;
 }
 
+/*organizes the elements into sections with different areas*/
 .section1{
     display: flex;
     flex-direction: row;
@@ -295,6 +315,7 @@ img{
     float: right;
 }
 
+/*creates the newsletter form in the footer*/
 .newsletter{
     display: block;
     padding: 20px;
@@ -322,17 +343,19 @@ img{
 	width: 280px;
 }
 
-
+/*removing the top margin in the home page options*/
 #main-options{
     margin-top: 0%;
 }
 
+/*sets the minimum height for the main home page and aligns them into columns and aligns the text onto the center*/
 #main-home{
     min-height: 738px;
     flex-direction: column; 
     text-align: center;   
 }
 
+/*sets attribute for the title*/
 #title{
     width: auto;
     font-size: 30px;
@@ -341,6 +364,8 @@ img{
 }
 
 /* breakfest stuff */
+
+/*styles the main for the breakfest page*/
 #main-breakfest{
     display: flex;
     justify-content: center;
@@ -348,44 +373,44 @@ img{
     min-height: 678px;
 }
 
+/*sets the columns and rows for the options in breakfast*/
 #breakfest-options{
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
     flex-direction: row;
-    /* margin-left: 5%;
-    margin-right: 5%; */
 }
 
+/*sets how the title will appear on the page using grid*/
 #breakfest-title{
    grid-row-start: 1;
    grid-row-end: 2;
     grid-column-start: 1;
     grid-column-end: 3;
     font-size: 20px;
-    
-  
    
 }
 
+/*changes the colour and shadow on the h1 in breakfet title*/
 #breakfest-title h1{
     color: #ff70c1;
     text-shadow: 2px 2px 4px black;
 }
 
-
-
+/*sets how the items will appear on the page*/
 .items{
     flex-direction: row;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
+/*stlyes the background image in teh breakfest page*/
 #breakfest-body{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imgs/breakfast-family.jpg) no-repeat;
     background-size:cover;
 
 }
 
+/*sets how the featured meal will appear*/
 #featured-meal{
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
@@ -394,6 +419,7 @@ img{
     margin-right: 1%;
 }
 
+
 #featured-meal .holder{
    grid-row-start: 2;
    grid-row-end: 3;
@@ -401,8 +427,6 @@ img{
    grid-column-end: 3;
    
 } 
-
-
 
 #featured-title{
     max-width: 500px;
@@ -417,7 +441,7 @@ img{
     text-shadow: 2px 2px 4px black;
 } 
 
-
+/*creates a large container to organize all of the smaller sections*/
 .container{
     display: grid;
     margin: 0;
@@ -456,6 +480,8 @@ img{
 }
 
 /* lunch stuff */
+
+/*creates a container for the lunch page*/
 #lunch-container{
     margin-top: 3%;
     margin-bottom: 3%;
@@ -465,6 +491,12 @@ img{
     grid-template-rows: auto auto auto ;
 }
 
+/*makes the holders in lunch have a larger space in the bottom*/
+#lunch-holder{
+    margin-bottom: 15px;
+}
+
+/*styles how the main title of each lunch section will look and where it will be*/
 #lunch-title{
     grid-column-start: 1;
     grid-column-end: 2;
@@ -480,6 +512,7 @@ img{
     text-shadow: 2px 2px 4px black;
 }
 
+/*sets how the page will appear*/
 #lunch-list{
     grid-column-start: 2;
     grid-column-end: 3;
@@ -488,6 +521,7 @@ img{
    max-height: 360px;
 }
 
+/*creates the scrolling effect for the lunch items*/
 .selections{
     overflow-y: scroll;
     height: 360px;
@@ -504,7 +538,7 @@ img{
 }
 
 
-
+/*styles the background image of the body of the lunch page*/
 #lunch-body{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imgs/lunch\ eating\ image.jpg) no-repeat;
     background-size:cover;
@@ -512,6 +546,7 @@ img{
 
 /*Dinner stuff*/
 
+/*styles the background image of the body of the dinner page*/
 #dinner-body{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(./imgs/dinnerbgimg.jfif) no-repeat;
     background-size:cover;
@@ -519,6 +554,8 @@ img{
 
 
 /*login suff*/
+
+/*creats the main login container*/
 .login{
     display: block;
     padding: 20px;
@@ -526,10 +563,7 @@ img{
     
 }
 
-#login{
-    max-height: none;    
-}
-
+/*makes paddings for the login pages*/
 .login  .login-group{
     display: flex;
     padding-bottom: 15px;
@@ -537,20 +571,25 @@ img{
 
 }
 
+/*makes the buttons and info sections look better*/
 .login input[type="text"], .login textarea, .login input[type="password"]{
 	padding: 8px;
 	width: 280px;
 }
 
-
+/*makes links in the login page blue*/
 #login-link{
     color: blue;
 }
 
+/*sets a background for the login page*/
 #login-body{
     background: url(./imgs/loginbcimage.jpg) no-repeat;
     background-size: cover;
 }
+
+/*media queries are used to add responsiveness for medium sized pages,
+the breakfest page, super small sizes, and the contents in the navbar
 
 /*medium size*/
 @media (max-width:1585px){
