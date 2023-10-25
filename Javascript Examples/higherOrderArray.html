@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hihger order array</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // let greeting = name => alert(name);
+
+    // let processUserInput = callback => {
+    //     let name = prompt("WHAT IS UR NAME")
+    //     callback(name);
+    // }
+
+    // //passes the function itself
+    // processUserInput(greeting);
+
+    // //passing the result of the fucntion and not the function itself
+    // //processUserInput(greeting())
+
+    //for each callback function
+
+    //const arr = [1,4,53,2,123,213];
+
+    // arr.forEach((el)=> console.log(el));
+    // arr.forEach((el, idx)=> console.log(idx +": " + el));
+    // arr.forEach((el, idx, arr)=> console.log(idx +": " + el + " - " + JSON.stringify(arr)));
+    // [1,4,53,2,123,213].forEach((el, idx, arr)=> console.log(idx +": " + el + " - " + JSON.stringify(arr)));
+
+    const teams = [
+        {Name:"BlueJays", W:3, L:2, PTS:6},
+        {Name:"Caasuges", W:2000, L:0, PTS:12},
+        {Name:"Slomers", W:12, L:122, PTS:600},
+        {Name:"Egg Heads", W:6, L:6, PTS:69},
+        {Name:"Monkeys", W:12, L:20, PTS:6},
+        {Name:"Stinkers", W:0, L:2000, PTS:0}
+    ];
+
+    teams.forEach(team => console.log(team.Name));
+
+
+    const numbers = [1, 2, 3, 4, 5];
+
+    /**
+     * map: Transforms array elements with a provided function, creating a new array.
+     * makes new array that changes elements of original array
+     */
+    const doubledNumbers = numbers.map((num) => num * 2);
+
+    // console.log(doubledNumbers);
+
+    /**
+     * filter: Creates a new array with elements that satisfy a specified condition.
+     * quick if statement
+     * when having more conditions use brackets around it EX numbers.filter((num) => (num>=2 && mun<=3));
+     */
+
+    const evenNumbers = numbers.filter((num) => num > 2);
+
+    // console.log(evenNumbers);
+
+    /**
+     * reduce: Accumulates array elements into a variable using a provided function.
+     * basically its a function that comes with a variable you can use
+     */
+
+    const sum = numbers.reduce((total, num) => total + num, 0);
+
+    // console.log(sum);
+
+    /**
+     * forEach: Iterates through array elements and applies a function without creating a new array.
+     */
+
+    numbers.forEach((num) => console.log(num));
+
+
+   /**
+     * sort: Sorts the array based on the condition you give it
+     */
+
+</script>
+</html>

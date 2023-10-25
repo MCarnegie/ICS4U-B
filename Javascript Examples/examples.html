@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Examples</title>
+    <script>
+        // let x= 7;
+        
+        // if(true){
+        //     let x = 9;
+        //     console.log(x);
+        // }
+
+        // console.log(x);
+
+        const array = [1,6,4,5,23,1,2,3];
+        console.log(array);
+
+        array.push("stink");
+        console.log(array);
+
+        array.pop()
+        console.log(array);
+
+        array[3] = 99;
+        console.log(array);
+        // array[87] = 12;
+        // console.log(array)
+
+        let arrStr = JSON.stringify(array);
+        console.log(arrStr);
+
+        let arrObj = JSON.parse(arrStr)
+        console.log(array)
+
+        //slice (substring for arrays)
+        const temp = array.slice(1,3)
+        console.log(temp)
+
+        //splice (removes it from the array) (starts at index one and removes the next 3 elements anything after goes into array)
+        array.splice(1,3, 0, "hello")
+        console.log(array)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
