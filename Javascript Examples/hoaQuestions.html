@@ -17,12 +17,12 @@ const students = [
   { name: 'Charlie', score: 88 },
   { name: 'David', score: 60 },
   { name: 'Eve', score: 78 },
-];
+];  
+
+let over80doubled = students.filter((student) => student.score>80).map((student) => student.score*2)
+console.log(over80doubled);
 
 
-let over80 = students.filter((student) => student.score>80)
-let scoreDouble = over80.map((score) => score.score*2);
-console.log(scoreDouble)
 
 // Problem 2: Reducing to Find Maximum Score with Objects
 // You have an array of objects representing scores in a baseball game. Each object has properties team and score. Write a function that uses the reduce function to find the team with the highest score.
@@ -34,14 +34,15 @@ const scores = [
   { team: 'E', score: 11 },
 ];
 
-let highestScore = scores.reduce((total, team)=> {
-    if(team.score>total){
-        return total = team.score;
-    }else{
-        return total = total
+let highestScore = scores.reduce((highest, team) => {
+    if(team.score>highest){
+        highest = team.score
     }
+    return highest;
+      
 }, 0)
 console.log(highestScore)
+
 
  
 // Problem 3: Counting Occurrences with Objects
@@ -51,27 +52,24 @@ const products = [
   { name: 'Shoes', category: 'Fashion' },
   { name: 'Camera', category: 'Electronics' },
   { name: 'Jeans', category: 'Fashion' },
-  { name: 'Microwave', category: 'Electronics' },
 ];
+let Categories = [];
+products.forEach((product, i) =>{
+    if(!Categories.includes(product.category)){
+        Categories.push(product.category);
+    }
+})
+Categories.forEach((notNeeded, i) =>{
+    let num = products.reduce((total,product, a) =>{
+        if(products[a].category === Categories[i])
+            total++;
+        return total;
+    },0)
+    Categories[i] += ": " + num;
+})
 
-function countCatagories(products){
-    let categoryList = {};
 
-    products.forEach(product => {
-        let category = product.category;
-
-        if (categoryList[category]) {
-            categoryList[category]++;
-        } else {
-            categoryList[category] = 1;
-        }
-    });
-
-    return categoryList;
-}
-
-let test4 = countCatagories(products)
-console.log(test4);
+console.log(Categories)
 
  
 // Problem 4: Sorting Students
@@ -84,26 +82,23 @@ const students1 = [
   { name: 'Eve', score: 88 },
 ];
 
-function sortStudents(students){
-    students.sort((a,b)=> {
-        if(a.score<b.score)
-            return 1;
-        else if(a.score == b.score){
-            if(a.name<b.name){
-                return -1
-            }else{
-                return 1
-            }
-        }else{
-            return -1
+
+//in sorting, 1 means the right element is going to come before the left element
+//and -1 means the left element will come before the right element
+let order = students1.sort((a,b) =>{
+    if(a.score<b.score){
+        return 1;
+    }else if(a.score>b.score){
+        return -1;
+    }else{
+        if(a.name<b.name){
+            return -1;
         }
+    }
+})
 
-    })
-    return students
-}
+console.log(order)
 
-let test = sortStudents(students1)
-console.log(test);
 
 
 </script>
