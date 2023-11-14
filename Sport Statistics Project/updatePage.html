@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+   <div class="container">
+        <div class="columns">
+            <div class="column ">
+              
+                <form id="scoreForm">
+                    <div id="data">
+                        <input class="input is-primary" id="pos" type="number" placeholder="Enter Position">
+                        <input class="input is-primary" id="nam" type="text" placeholder="Enter Team Name">
+                        <input class="input is-primary" id="play" type="number" placeholder="Enter Games Played">
+                        <input class="input is-primary" id="won" type="number" placeholder="Enter Games won">
+                        <input class="input is-primary" id="draw" type="number" placeholder="Enter Games drawn">
+                        <input class="input is-primary" id="los" type="number" placeholder="Enter Games lose">
+                        <input class="input is-primary" id="for1" type="number" placeholder="Enter Goals for">
+                        <input class="input is-primary" id="agan" type="number" placeholder="Enter Goals Against">
+                        <input class="input is-primary" id="diff" type="number" placeholder="Enter Goal Difference">
+                        <input class="input is-primary" id="poin" type="number" placeholder="Enter Points">
+                        <button type="submit">Add Score</button>
+                    </div>
+                    
+          
+
+                    
+                </form>
+        
+                
+                
+              
+            </div>
+            <div class="column">
+              
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th><abbr title="Position">Pos</abbr></th>
+                          <th>Team</th>
+                          <th><abbr title="Played">Pld</abbr></th>
+                          <th><abbr title="Won">W</abbr></th>
+                          <th><abbr title="Drawn">D</abbr></th>
+                          <th><abbr title="Lost">L</abbr></th>
+                          <th><abbr title="Goals for">GF</abbr></th>
+                          <th><abbr title="Goals against">GA</abbr></th>
+                          <th><abbr title="Goal difference">GD</abbr></th>
+                          <th><abbr title="Points">Pts</abbr></th>
+                        
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+                </table>
+        
+                
+                
+              
+            </div>
+
+            <div class="column">
+                <table id="standing">
+
+                </table>
+            </div>
+          </div>
+    </div>
+        
+
+    
+</body>
+<script src="script.js" defer></script>
+</html>
