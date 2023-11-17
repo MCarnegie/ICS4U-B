@@ -10,21 +10,48 @@
    <div class="container">
         <div class="columns">
             <div class="column ">
-              
-                <form id="scoreForm">
-                    <div id="data">
-                        <input class="input is-primary" id="pos" type="number" placeholder="Enter Position">
-                        <input class="input is-primary" id="nam" type="text" placeholder="Enter Team Name">
-                        <input class="input is-primary" id="play" type="number" placeholder="Enter Games Played">
-                        <input class="input is-primary" id="won" type="number" placeholder="Enter Games won">
-                        <input class="input is-primary" id="draw" type="number" placeholder="Enter Games drawn">
-                        <input class="input is-primary" id="los" type="number" placeholder="Enter Games lose">
-                        <input class="input is-primary" id="for1" type="number" placeholder="Enter Goals for">
-                        <input class="input is-primary" id="agan" type="number" placeholder="Enter Goals Against">
-                        <input class="input is-primary" id="diff" type="number" placeholder="Enter Goal Difference">
-                        <input class="input is-primary" id="poin" type="number" placeholder="Enter Points">
-                        <button type="submit">Add Score</button>
-                    </div>
+                        <form id="scoreForm" class="field">
+                            <label for="team1" class="label">Team 1: </label>
+                                <div class="select">
+                                    <select id="team1" required>
+                                        <option value="Leicester City">Leicester City</option>
+                                        <option value="Arsenal">Arsenal</option>
+                                        <option value="Tottenham Hotspur">Tottenham Hotspur</option>
+                                        <option value="Manchester City">Manchester City</option>
+                                        <option value="Manchester United">Manchester United</option>
+                                        <option value="Southampton">Southampton</option>
+                                        <option value="West Ham United">West Ham United</option>
+                                        <option value="Liverpool">Liverpool</option>
+                                        <option value="Stoke City">Stoke City</option>
+                                        <option value="Chelsea">Chelsea</option>
+                                        
+                                    </select>
+                                </div>
+                            <label for="team1Score" class="label">Score: </label>
+                            <input class="input" type="number" id="team1Score" required>
+                            
+                            <label for="team2" class="label">Team 2: </label>
+                                <div class="select">
+                                    <select id="team2" required>
+                                        <option value="Leicester City">Leicester City</option>
+                                        <option value="Arsenal">Arsenal</option>
+                                        <option value="Tottenham Hotspur">Tottenham Hotspur</option>
+                                        <option value="Manchester City">Manchester City</option>
+                                        <option value="Manchester United">Manchester United</option>
+                                        <option value="Southampton">Southampton</option>
+                                        <option value="West Ham United">West Ham United</option>
+                                        <option value="Liverpool">Liverpool</option>
+                                        <option value="Stoke City">Stoke City</option>
+                                        <option value="Chelsea">Chelsea</option>
+                                        
+                                    </select>
+                                </div>
+                            <label for="team2Score" class="label">Score: </label>
+                            <input class="input" type="number" id="team2Score" required>
+                            
+                            
+                            <button class="button" type="submit">Add Score</button>
+                    
                     
           
 
@@ -32,7 +59,7 @@
                 </form>
         
                 
-                
+                <ul id="scoreList"></ul>
               
             </div>
             <div class="column">
