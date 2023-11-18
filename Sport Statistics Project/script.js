@@ -53,14 +53,14 @@ updateList();
 const tbody = document.querySelector('tbody')
 
 function updateTable(){
-    let teams = getTeams();
-    let allStats = []
+    let allStats = getAllStats();
 
-    teams.forEach((team) =>{
-        let teamStat = getTeamStats(team);
-        allStats.push(teamStat)
-    })
+    allStats = getNoSortPos(allStats)
 
+    addElements(allStats);
+}
+
+function getNoSortPos(allStats){
     allStats.sort((a, b) =>{
         if(a.points>b.points){
             return -1;
@@ -69,6 +69,13 @@ function updateTable(){
         }
     }).forEach((stat, i)=>{
         stat.pos = i+1;
+    })
+
+    return allStats
+}
+
+function addElements(stats) {
+    stats.forEach((stat, i)=>{
         let row = document.createElement("tr");
         for(const a in stat){
             let td = document.createElement("td");
@@ -77,7 +84,6 @@ function updateTable(){
         }
         tbody.appendChild(row)
     })
-
 }
 
 function getTeams() {
@@ -138,6 +144,144 @@ function getTeamStats(team) {
     
 }
 
+function getAllStats() {
+    let teams = getTeams();
+    let allStats = []
 
+    teams.forEach((team) =>{
+        let teamStat = getTeamStats(team);
+        allStats.push(teamStat)
+    })
+
+    return allStats
+}
+
+let isOn = true
+function decending(sort) {
+    let allStats = getAllStats();
+    allStats = getNoSortPos(allStats);
+    
+    if(isOn){
+        allStats = sort(allStats)
+        tbody.innerHTML = '';
+        addElements(allStats);
+        isOn = false;
+    }else{
+        tbody.innerHTML = '';
+        updateTable();
+        isOn = true;
+    }
+}
+function pos() {
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.pos<b.pos){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
+
+function plyd() {
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.plyd>b.plyd){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
+
+function win(){
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.win>b.win){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
+
+function draw() {
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.draw<b.draw){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
+
+function loss() {
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.loss<b.loss){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
+
+function gf(){
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.gf>b.gf){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
+
+function ga(){
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.ga>b.ga){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
+
+function gd(){
+    decending((stat)=>{
+        stat.sort((a, b) =>{
+            if(a.gd>b.gd){
+                return 1;
+            }else
+                return -1;
+            
+        })
+
+        return stat
+    });
+}
 
 updateTable();

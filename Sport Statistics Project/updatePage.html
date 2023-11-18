@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
    <div class="container">
@@ -65,17 +66,18 @@
             <div class="column">
               
                 <table class="table">
-                    <thead>
+                    <thead id = "thead">
                         <tr>
-                          <th><abbr title="Position">Pos</abbr></th>
+                            
+                          <th><abbr title="Position"><button class="unbutton" onclick="pos()">Pos</button></abbr></th>
                           <th>Team</th>
-                          <th><abbr title="Played">Pld</abbr></th>
-                          <th><abbr title="Won">W</abbr></th>
-                          <th><abbr title="Drawn">D</abbr></th>
-                          <th><abbr title="Lost">L</abbr></th>
-                          <th><abbr title="Goals for">GF</abbr></th>
-                          <th><abbr title="Goals against">GA</abbr></th>
-                          <th><abbr title="Goal difference">GD</abbr></th>
+                          <th><abbr title="Played"><button class="unbutton" onclick="plyd()">Pld</button></abbr></th>
+                          <th><abbr title="Won"><button class="unbutton" onclick="win()">W</button></abbr></th>
+                          <th><abbr title="Drawn"><button class="unbutton" onclick="draw()">D</button></abbr></th>
+                          <th><abbr title="Lost"><button class="unbutton" onclick="loss()">L</button></abbr></th>
+                          <th><abbr title="Goals for"><button class="unbutton" onclick="gf()">GF</button></abbr></th>
+                          <th><abbr title="Goals against"><button class="unbutton" onclick="ga()">GA</button></abbr></th>
+                          <th><abbr title="Goal difference"><button class="unbutton" onclick="gd()">GD</button></abbr></th>
                           <th><abbr title="Points">Pts</abbr></th>
                         
                         </tr>
