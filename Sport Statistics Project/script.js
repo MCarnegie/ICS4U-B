@@ -37,6 +37,7 @@ form.addEventListener('submit', (e) => {
         team2Select.value = 'Team A';
         team2ScoreInput.value = ''; // Clear the input field for Team 2
         updateList();
+        updateTable();
     }
 });
 
@@ -44,6 +45,7 @@ form.addEventListener('submit', (e) => {
 function removeScore(index) {
     scoreData.splice(index, 1);
     updateList();
+    updateTable();
 }
 
 // Initial list population
@@ -51,6 +53,7 @@ updateList();
 
 //populating the table
 const tbody = document.querySelector('tbody')
+
 
 function updateTable(){
     let allStats = getAllStats();
@@ -75,6 +78,7 @@ function getNoSortPos(allStats){
 }
 
 function addElements(stats) {
+    tbody.innerHTML = '';
     stats.forEach((stat, i)=>{
         let row = document.createElement("tr");
         for(const a in stat){
@@ -172,6 +176,8 @@ function decending(sort) {
         isOn = true;
     }
 }
+
+
 function pos() {
     decending((stat)=>{
         stat.sort((a, b) =>{
@@ -259,7 +265,7 @@ function gf(){
 function ga(){
     decending((stat)=>{
         stat.sort((a, b) =>{
-            if(a.ga>b.ga){
+            if(a.ga<b.ga){
                 return 1;
             }else
                 return -1;
