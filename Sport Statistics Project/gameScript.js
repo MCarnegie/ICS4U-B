@@ -32,9 +32,9 @@ form.addEventListener('submit', (e) => {
     if (!isNaN(team1Score) && !isNaN(team2Score)) {
         const score = { team1, team1Score, team2, team2Score };
         scoreData.push(score);
-        team1Select.value = 'Team A';
+        //team1Select.value = 'Team A';
         team1ScoreInput.value = ''; // Clear the input field for Team 1
-        team2Select.value = 'Team A';
+        //team2Select.value = 'Team A';
         team2ScoreInput.value = ''; // Clear the input field for Team 2
         updateList();
         updateTable();

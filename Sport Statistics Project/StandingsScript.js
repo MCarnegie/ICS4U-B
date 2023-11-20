@@ -212,7 +212,7 @@ function gf(){
 function ga(){
     decending((stat)=>{
         stat.sort((a, b) =>{
-            if(a.ga<b.ga){
+            if(a.ga>b.ga){
                 return 1;
             }else
                 return -1;
