@@ -64,7 +64,7 @@ function getTeamStats(team) {
    let loss = 0;
    let draw = 0;
    let gf = 0;
-    let ga = 0;
+   let ga = 0;
     
     scoreData.forEach((game, i)=>{
             let score1;
@@ -113,25 +113,26 @@ function decending(sort) {
     allStats = getNoSortPos(allStats);
     
     if(isOn){
-        allStats = sort(allStats)
+        allStats = sort(allStats, 1)
         tbody.innerHTML = '';
         addElements(allStats);
         isOn = false;
     }else{
+        allStats = sort(allStats, -1)
         tbody.innerHTML = '';
-        updateTable();
+        addElements(allStats);
         isOn = true;
     }
 }
 
 
 function pos() {
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.pos<b.pos){
-                return 1;
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
@@ -140,12 +141,12 @@ function pos() {
 }
 
 function plyd() {
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.plyd>b.plyd){
-                return 1;
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
@@ -154,12 +155,12 @@ function plyd() {
 }
 
 function win(){
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.win>b.win){
-                return 1;
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
@@ -168,12 +169,12 @@ function win(){
 }
 
 function draw() {
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
-            if(a.draw<b.draw){
-                return 1;
+            if(a.draw>b.draw){
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
@@ -182,12 +183,12 @@ function draw() {
 }
 
 function loss() {
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
-            if(a.loss<b.loss){
-                return 1;
+            if(a.loss>b.loss){
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
@@ -196,12 +197,12 @@ function loss() {
 }
 
 function gf(){
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.gf>b.gf){
-                return 1;
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
@@ -210,12 +211,12 @@ function gf(){
 }
 
 function ga(){
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.ga>b.ga){
-                return 1;
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
@@ -224,12 +225,12 @@ function ga(){
 }
 
 function gd(){
-    decending((stat)=>{
+    decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.gd>b.gd){
-                return 1;
+                return num;
             }else
-                return -1;
+                return num*-1;
             
         })
 
