@@ -4,18 +4,38 @@ let team = searchParams.get("team");
 
 let scoreData = JSON.parse(localStorage.getItem('scoreData'));
 function addGames(){
+    let week = getWeeks();
+    week.forEach((week)=>{
+        let label = document.createElement("label")
+        label.innerHTML = "week " + week + ":";
+        let list = document.createElement("ul")
+        scoreData.forEach((game)=>{
+            if((team === game.team1 || team === game.team2) && game.week === week){
+                let li = document.createElement("li")
+                li.innerHTML = `<span>${team === game.team1?game.team1:game.team2}: 
+                ${team === game.team1?game.team1Score:game.team2Score} - 
+                ${team === game.team1?game.team2:game.team1}: 
+                ${team === game.team1?game.team2Score:game.team1Score} - 
+                ${team === game.team1 && game.team1Score>game.team2Score? "won":team === game.team2 && game.team2Score>game.team1Score?"won":"lost"}</span>`
+                list.appendChild(li);
+            }
+        });
+        label.appendChild(list);
+        let container = document.getElementById("list")
+        container.appendChild(label);
+    })
+    
+}
+
+function getWeeks(){
+    let arr = [];
     scoreData.forEach((game)=>{
-        let list = document.querySelector("ul")
-        if(team === game.team1 || team === game.team2){
-            let li = document.createElement("li")
-            li.innerHTML = `<span>${team === game.team1?game.team1:game.team2}: 
-            ${team === game.team1?game.team1Score:game.team2Score} - 
-            ${team === game.team1?game.team2:game.team1}: 
-            ${team === game.team1?game.team2Score:game.team1Score} - 
-            ${team === game.team1 && game.team1Score>game.team2Score? "won":"lost"}</span>`
-            list.appendChild(li);
+        if(!arr.includes(game.week)){
+            arr.push(game.week)
         }
-    });
+    })
+
+    return arr;
 }
 
 addGames();

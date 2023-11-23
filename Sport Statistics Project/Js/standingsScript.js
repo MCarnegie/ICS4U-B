@@ -2,6 +2,7 @@
 const tbody = document.querySelector('tbody')
 let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
 
+
 function updateTable(){
     let allStats = getAllStats();
 
@@ -50,12 +51,14 @@ function addElements(stats) {
 }
 
 function getTeams() {
+    const weekInput = document.getElementById('week');
+    const week = weekInput.value;
     let arr =[]
     scoreData.forEach((team)=>{
-        if(!arr.includes(team.team1)){
+        if(!arr.includes(team.team1) && team.week === week){
             arr.push(team.team1)
         }
-        if(!arr.includes(team.team2)){
+        if(!arr.includes(team.team2) && team.week === week){
             arr.push(team.team2)
         }
             

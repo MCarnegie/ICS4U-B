@@ -7,11 +7,16 @@ let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
 
 // Function to update the list and save to local storage
 function updateList() {
+    const weekInput = document.getElementById('week');
+    const week = weekInput.value;
     list.innerHTML = '';
     scoreData.forEach((score, index) => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `<span>${score.team1}: ${score.team1Score} - ${score.team2}: ${score.team2Score} -</span> <a href="#" onclick="removeScore(${index})">Remove</a>`;
-        list.appendChild(listItem);
+        if(score.week === week){
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<span>${score.team1}: ${score.team1Score} - ${score.team2}: ${score.team2Score} -</span> <a href="#" onclick="removeScore(${index})">Remove</a>`;
+            list.appendChild(listItem);
+        }
+        
     });
     localStorage.setItem('scoreData', JSON.stringify(scoreData));
 }
@@ -23,14 +28,16 @@ form.addEventListener('submit', (e) => {
     const team1ScoreInput = document.getElementById('team1Score');
     const team2Select = document.getElementById('team2');
     const team2ScoreInput = document.getElementById('team2Score');
+    const weekInput = document.getElementById('week');
 
     const team1 = team1Select.value;
     const team1Score = parseInt(team1ScoreInput.value);
     const team2 = team2Select.value;
     const team2Score = parseInt(team2ScoreInput.value);
+    const week = weekInput.value;
 
     if (!isNaN(team1Score) && !isNaN(team2Score)) {
-        const score = { team1, team1Score, team2, team2Score };
+        const score = { team1, team1Score, team2, team2Score, week};
         scoreData.push(score);
         //team1Select.value = 'Team A';
         team1ScoreInput.value = ''; // Clear the input field for Team 1
