@@ -29,11 +29,23 @@ function addElements(stats) {
     stats.forEach((stat, i)=>{
         let row = document.createElement("tr");
         for(const a in stat){
+            let t = "" + stat[a];
             let td = document.createElement("td");
-            td.innerHTML = stat[a]
-            row.appendChild(td);
+            td.innerHTML = stat[a];
+            if(a === "team"){
+                
+                let a = document.createElement('a')
+                a.appendChild(td)
+                a.href = `teamGames.html?team=${t}`
+
+                row.appendChild(a);
+            }else{
+                 row.appendChild(td);
+            }
+           
         }
-        tbody.appendChild(row)
+
+        tbody.appendChild(row);
     })
 }
 
@@ -101,6 +113,7 @@ function getAllStats() {
 
     teams.forEach((team) =>{
         let teamStat = getTeamStats(team);
+
         allStats.push(teamStat)
     })
 
