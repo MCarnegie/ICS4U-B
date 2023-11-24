@@ -17,9 +17,9 @@
                 <a href="gameInput.html">To games</a>
             </div>
 
-            <label for="week" class="label">Which Week?</label>
+            <label for="week" class="label">Which Week(s)?</label>
             <div class="select">
-                <select id="week" onchange="updateTable()" required>
+                <select id="weekStart" onchange="updateTable()" required>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -31,6 +31,18 @@
                         <option value="9">9</option>
                         <option value="10">10</option>
                 </select>
+                <select id="weekEnd" onchange="updateTable()" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                 </select>
             </div>
 
             <div class="column is-half is-offset-one-quarter">

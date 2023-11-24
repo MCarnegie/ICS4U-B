@@ -10,7 +10,34 @@
 <body>
     <a href="standings.html">Back to Standings</a>
    <div class="container" id="list">
-        
+    
+    </div>
+    <label for="week" class="label">Which Week(s)?</label>
+    <div class="select">
+        <select id="weekStart" onchange="addGames()" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+        </select>
+        <select id="weekEnd" onchange="addGames()" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+         </select>
     </div>
         
 

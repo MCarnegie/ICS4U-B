@@ -50,21 +50,36 @@ function addElements(stats) {
     })
 }
 
+function inRange(week, weekStart, weekEnd){
+    if(parseInt(week)>=weekStart && parseInt(week)<=weekEnd){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function getTeams() {
-    const weekInput = document.getElementById('week');
-    const week = weekInput.value;
+    const weekInputStart = document.getElementById('weekStart');
+    const weekStart = parseInt(weekInputStart.value);
+    const weekInputEnd = document.getElementById('weekEnd');
+    const weekEnd = parseInt(weekInputEnd.value);
+
+   
     let arr =[]
     scoreData.forEach((team)=>{
-        if(!arr.includes(team.team1) && team.week === week){
+        let isinRange = inRange(team.week, weekStart, weekEnd);
+        if(!arr.includes(team.team1) && isinRange){
             arr.push(team.team1)
         }
-        if(!arr.includes(team.team2) && team.week === week){
+        if(!arr.includes(team.team2) && isinRange){
             arr.push(team.team2)
         }
             
     })
     return arr;
 }
+
+
 
 function getTeamStats(team) {
    let plyd = scoreData.reduce((num, game, index)=>{
