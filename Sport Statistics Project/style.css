@@ -7,4 +7,16 @@
     font: inherit;
     border-radius: 0;
     
+    
+}
+
+nav.navbar {
+    min-height: 4rem !important;
+    border-bottom: 1px grey solid;
+}
+
+.content ul {
+    list-style: none;
+    margin-left: 0em;
+    margin-top: 0em;
 }

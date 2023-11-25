@@ -8,24 +8,25 @@ function addGames(){
     list.innerHTML = '';
     let week = getWeeks();
     week.forEach((week)=>{
-        let label = document.createElement("label")
-        label.innerHTML = "week " + week + ":";
+        let label = document.createElement('strong')
+        label.innerHTML = "Week " + week + ":";
         let list = document.createElement("ul")
         scoreData.forEach((game)=>{
             if((team === game.team1 || team === game.team2) && game.week === week){
                 let li = document.createElement("li")
-                li.innerHTML = `<span>${team === game.team1?game.team1:game.team2}: 
+                li.innerHTML = `<span>${team === game.team1?game.team1:game.team2} 
                 ${team === game.team1?game.team1Score:game.team2Score} - 
-                ${team === game.team1?game.team2:game.team1}: 
-                ${team === game.team1?game.team2Score:game.team1Score} - 
-                ${team === game.team1 && game.team1Score>game.team2Score? "won":team === game.team2 && game.team2Score>game.team1Score?"won":"lost"}</span>`
+                ${team === game.team1?game.team2Score:game.team1Score} 
+                ${team === game.team1?game.team2:game.team1} - 
+                ${team === game.team1 && game.team1Score>game.team2Score? team + " won":team === game.team2 && game.team2Score>game.team1Score?team + " won":team + " lost"}</span>`
                 list.appendChild(li);
             }
         });
-        
-        label.appendChild(list);
+        // label.appendChild(list);
         let container = document.getElementById("list")
+
         container.appendChild(label);
+        container.appendChild(list);
     })
     
 }

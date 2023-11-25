@@ -10,10 +10,13 @@ function updateList() {
     const weekInput = document.getElementById('week');
     const week = weekInput.value;
     list.innerHTML = '';
+    const listItem = document.createElement('strong');
+    listItem.innerHTML = 'Week: ' + week;
+    list.appendChild(listItem);
     scoreData.forEach((score, index) => {
         if(score.week === week){
             const listItem = document.createElement('li');
-            listItem.innerHTML = `<span>${score.team1}: ${score.team1Score} - ${score.team2}: ${score.team2Score} -</span> <a href="#" onclick="removeScore(${index})">Remove</a>`;
+            listItem.innerHTML = `<span>${score.team1} ${score.team1Score} - ${score.team2Score} ${score.team2}  -</span> <a href="#" onclick="removeScore(${index})">Remove</a>`;
             list.appendChild(listItem);
         }
         
