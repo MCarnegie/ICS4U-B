@@ -24,9 +24,14 @@ function getNoSortPos(allStats){
 
     return allStats
 }
+let num_teams = getTeams().length;
+let num_teams_per_page = 5;
+let curr_page = 1;
+let max_page = num_teams % num_teams_per_page == 0 ? num_teams / num_teams_per_page : (num_teams / num_teams_per_page) + 1;
 
 function addElements(stats) {
     tbody.innerHTML = '';
+    stats = stats.slice((curr_page-1)*num_teams_per_page, (curr_page-1)*num_teams_per_page+num_teams_per_page)
     stats.forEach((stat, i)=>{
         let row = document.createElement("tr");
         for(const a in stat){
@@ -38,16 +43,34 @@ function addElements(stats) {
                 let a = document.createElement('a')
                 a.appendChild(td)
                 a.href = `teamGames.html?team=${t}`
-
-                row.appendChild(a);
+                td = a;
+            }
+            if(window.innerWidth<=800){
+                    if(["pos","team", "win", "loss"].includes(a)){
+                        row.appendChild(td);
+                    }
             }else{
-                 row.appendChild(td);
+                     row.appendChild(td);
             }
            
         }
 
         tbody.appendChild(row);
     })
+}
+
+function updatePagination(){
+    const ul = document.querySelector("#pagination");
+    for(let page = 1; page<=max_page; page++){
+        const li = document.createElement('li');
+        li.innerHTML = `<a class="pagination-link" aria-label="Goto page ${page}">${page}</a>`
+        li.addEventListener("click", (e)=>{
+           curr_page = parseInt(e.target.innerHTML);
+           updateTable();
+        })
+        ul.append(li);
+    }
+
 }
 
 function inRange(week, weekStart, weekEnd){
@@ -268,5 +291,32 @@ function gd(){
         return stat
     });
 }
-
 updateTable();
+updatePagination();
+let thead = document.querySelector("thead");
+let headers = thead.querySelector("tr");
+let allHeads = headers.innerHTML;
+let arr = Array.from(thead.querySelector("tr").children);
+setInterval(()=>{
+    
+    
+    if(window.innerWidth<=800){
+        thead.innerHTML = '';
+        let row = document.createElement('tr');
+        for(let i = 0; i<arr.length; i++){
+            if([0, 1, 3, 5].includes(i)){
+                row.appendChild(arr[i])
+            }
+        }
+        thead.appendChild(row)
+        updateTable();
+        
+    }else{
+        thead.innerHTML = '';
+        let row = document.createElement('tr');
+        row.innerHTML = allHeads
+        thead.appendChild(row)
+        updateTable();
+    }
+    
+}, 100)
