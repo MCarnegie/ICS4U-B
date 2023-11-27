@@ -1,7 +1,28 @@
 //populating the table
 const tbody = document.querySelector('tbody')
 let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
-
+var w;
+function updateWidth() {
+    w = window.innerWidth;
+    if(w<=800){
+        thead.innerHTML = '';
+        let row = document.createElement('tr');
+        for(let i = 0; i<arr.length; i++){
+            if([0, 1, 3, 5].includes(i)){
+                row.appendChild(arr[i])
+            }
+        }
+        thead.appendChild(row)
+        updateTable();
+        
+    }else{
+        thead.innerHTML = '';
+        let row = document.createElement('tr');
+        row.innerHTML = allHeads
+        thead.appendChild(row)
+        updateTable();
+    }
+}
 
 function updateTable(){
     let allStats = getAllStats();
@@ -45,7 +66,7 @@ function addElements(stats) {
                 a.href = `teamGames.html?team=${t}`
                 td = a;
             }
-            if(window.innerWidth<=800){
+            if(w<=800){
                     if(["pos","team", "win", "loss"].includes(a)){
                         row.appendChild(td);
                     }
@@ -198,9 +219,9 @@ function plyd() {
     decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.plyd>b.plyd){
-                return num;
+                return num *-1;
             }else
-                return num*-1;
+                return num;
             
         })
 
@@ -212,9 +233,9 @@ function win(){
     decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.win>b.win){
-                return num;
+                return num *-1;
             }else
-                return num*-1;
+                return num;
             
         })
 
@@ -226,9 +247,9 @@ function draw() {
     decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.draw>b.draw){
-                return num;
+                return num *-1;
             }else
-                return num*-1;
+                return num;
             
         })
 
@@ -240,9 +261,9 @@ function loss() {
     decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.loss>b.loss){
-                return num;
+                return num *-1;
             }else
-                return num*-1;
+                return num;
             
         })
 
@@ -254,9 +275,9 @@ function gf(){
     decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.gf>b.gf){
-                return num;
+                return num *-1;
             }else
-                return num*-1;
+                return num;
             
         })
 
@@ -268,9 +289,9 @@ function ga(){
     decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.ga>b.ga){
-                return num;
+                return num *-1;
             }else
-                return num*-1;
+                return num;
             
         })
 
@@ -282,9 +303,9 @@ function gd(){
     decending((stat, num)=>{
         stat.sort((a, b) =>{
             if(a.gd>b.gd){
-                return num;
+                return num *-1;
             }else
-                return num*-1;
+                return num;
             
         })
 
@@ -297,26 +318,6 @@ let thead = document.querySelector("thead");
 let headers = thead.querySelector("tr");
 let allHeads = headers.innerHTML;
 let arr = Array.from(thead.querySelector("tr").children);
-setInterval(()=>{
+
     
     
-    if(window.innerWidth<=800){
-        thead.innerHTML = '';
-        let row = document.createElement('tr');
-        for(let i = 0; i<arr.length; i++){
-            if([0, 1, 3, 5].includes(i)){
-                row.appendChild(arr[i])
-            }
-        }
-        thead.appendChild(row)
-        updateTable();
-        
-    }else{
-        thead.innerHTML = '';
-        let row = document.createElement('tr');
-        row.innerHTML = allHeads
-        thead.appendChild(row)
-        updateTable();
-    }
-    
-}, 100)

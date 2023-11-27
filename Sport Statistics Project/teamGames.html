@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
           <div class="navbar-brand">
-            <a class="navbar-item" href="https://bulma.io">
+            <a class="navbar-item" href="https://www.premierleague.com/home">
               <img src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Premier_League_Logo.svg/1200px-Premier_League_Logo.svg.png" width="100" height="800">
             </a>
           </div>
@@ -37,7 +37,7 @@
                     <div class="column is-half is-offset-one-quarter">
                         <label for="week" class="label">Which Week(s)?</label>
                         <div class="select">
-                            <select id="weekStart" onchange="addGames()" required>
+                            <select id="weekStart" onchange="addGames(scoreData)" required>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -52,7 +52,7 @@
                             
                         </div>
                         <div class="select">
-                            <select id="weekEnd" onchange="addGames()" required>
+                            <select id="weekEnd" onchange="addGames(scoreData)" required>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -80,6 +80,10 @@
                         </div>
                         
                     </div>
+                    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+                      <ul id="pagination" class="pagination-list">
+                      </ul>
+                    </nav>
                 </div>
             </div>
         </main>
