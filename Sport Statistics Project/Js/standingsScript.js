@@ -1,7 +1,12 @@
 //populating the table
 const tbody = document.querySelector('tbody')
 let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
+let sortedStats;
 var w;
+let thead = document.querySelector("thead");
+let headers = thead.querySelector("tr");
+let allHeads = headers.innerHTML;
+let arr = Array.from(thead.querySelector("tr").children);
 function updateWidth() {
     w = window.innerWidth;
     if(w<=800){
@@ -26,9 +31,7 @@ function updateWidth() {
 
 function updateTable(){
     let allStats = getAllStats();
-
     allStats = getNoSortPos(allStats)
-
     addElements(allStats);
 }
 
@@ -59,12 +62,14 @@ function addElements(stats) {
             let t = "" + stat[a];
             let td = document.createElement("td");
             td.innerHTML = stat[a];
+            console.log(t)
             if(a === "team"){
-                
+                td.innerHTML = ''
                 let a = document.createElement('a')
-                a.appendChild(td)
+                a.innerHTML = t
                 a.href = `teamGames.html?team=${t}`
-                td = a;
+                td.appendChild(a);
+                // td.innerHTML = `<a href =teamGames.html?team=${t}>${t}</a>`
             }
             if(w<=800){
                     if(["pos","team", "win", "loss"].includes(a)){
@@ -87,35 +92,26 @@ function updatePagination(){
         li.innerHTML = `<a class="pagination-link" aria-label="Goto page ${page}">${page}</a>`
         li.addEventListener("click", (e)=>{
            curr_page = parseInt(e.target.innerHTML);
-           updateTable();
+           addElements(sortedStats)
         })
         ul.append(li);
     }
 
 }
 
-function inRange(week, weekStart, weekEnd){
-    if(parseInt(week)>=weekStart && parseInt(week)<=weekEnd){
-        return true;
-    }else{
-        return false;
-    }
-}
+
 
 function getTeams() {
-    const weekInputStart = document.getElementById('weekStart');
-    const weekStart = parseInt(weekInputStart.value);
-    const weekInputEnd = document.getElementById('weekEnd');
-    const weekEnd = parseInt(weekInputEnd.value);
+    
 
    
     let arr =[]
     scoreData.forEach((team)=>{
-        let isinRange = inRange(team.week, weekStart, weekEnd);
-        if(!arr.includes(team.team1) && isinRange){
+        
+        if(!arr.includes(team.team1)){
             arr.push(team.team1)
         }
-        if(!arr.includes(team.team2) && isinRange){
+        if(!arr.includes(team.team2)){
             arr.push(team.team2)
         }
             
@@ -190,11 +186,13 @@ function decending(sort) {
     if(isOn){
         allStats = sort(allStats, 1)
         tbody.innerHTML = '';
+        sortedStats = allStats;
         addElements(allStats);
         isOn = false;
     }else{
         allStats = sort(allStats, -1)
         tbody.innerHTML = '';
+        sortedStats = allStats;
         addElements(allStats);
         isOn = true;
     }
@@ -314,10 +312,3 @@ function gd(){
 }
 updateTable();
 updatePagination();
-let thead = document.querySelector("thead");
-let headers = thead.querySelector("tr");
-let allHeads = headers.innerHTML;
-let arr = Array.from(thead.querySelector("tr").children);
-
-    
-    

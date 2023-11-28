@@ -8,21 +8,18 @@ let num_games = getGamesFromTeam(team).length;
 let num_games_per_page = 2;
 let curr_page = 1;
 let max_page = num_games % num_games_per_page == 0 ? num_games / num_games_per_page : (num_games / num_games_per_page) + 1;
+let spefData = getGamesFromTeam(team);
 
-
-function addGames(maxData){
-    maxData = maxData.slice((curr_page-1)*num_games_per_page, (curr_page-1)*num_games_per_page+num_games_per_page)
+function addGames(spefData){
+    spefData = spefData.slice((curr_page-1)*num_games_per_page, (curr_page-1)*num_games_per_page+num_games_per_page)
     list.innerHTML = '';
-    let week = getWeeks(maxData);
-    week.forEach((week)=>{
+    let date = getDates(spefData);
+    date.forEach((date)=>{
         let label = document.createElement('strong')
-        
-        label.innerHTML = "Week " + week + ":";
-        
-        
+        label.innerHTML = date + ":";
         let list = document.createElement("ul")
-        maxData.forEach((game)=>{
-            if((team === game.team1 || team === game.team2) && game.week === week){
+        spefData.forEach((game)=>{
+            if((team === game.team1 || team === game.team2) && game.dateFull === date){
                 let li = document.createElement("li")
                 li.innerHTML = `<span>${team === game.team1?game.team1:game.team2} 
                 ${team === game.team1?game.team1Score:game.team2Score} - 
@@ -43,16 +40,16 @@ function addGames(maxData){
     
 }
 
-function getWeeks(maxData){
+function getDates(spefData){
     let arr = [];
-    const weekInputStart = document.getElementById('weekStart');
-    const weekStart = parseInt(weekInputStart.value);
-    const weekInputEnd = document.getElementById('weekEnd');
-    const weekEnd = parseInt(weekInputEnd.value);
+    
+    const dateInputStart = new Date(document.getElementById('dateStart').value).getTime();
+    const dateInputEnd = new Date(document.getElementById('dateEnd').value).getTime();
 
-    maxData.forEach((game)=>{
-        if(!arr.includes(game.week) && inRange(game.week, weekStart, weekEnd)){
-            arr.push(game.week)
+
+    spefData.forEach((game)=>{
+        if(!arr.includes(game.dateFull) && inRange(game.date, dateInputStart, dateInputEnd)){
+            arr.push(game.dateFull)
         }
     })
 
@@ -60,7 +57,7 @@ function getWeeks(maxData){
 }
 
 function inRange(week, weekStart, weekEnd){
-    if(parseInt(week)>=weekStart && parseInt(week)<=weekEnd){
+    if(week>=weekStart && week<=weekEnd){
         return true;
     }else{
         return false;
@@ -83,13 +80,13 @@ function updatePagination(){
         li.innerHTML = `<a class="pagination-link" aria-label="Goto page ${page}">${page}</a>`
         li.addEventListener("click", (e)=>{
            curr_page = parseInt(e.target.innerHTML);
-           addGames(scoreData); 
+           addGames(spefData); 
         })
         ul.append(li);
     }
 
 }
 
-addGames(scoreData);
+addGames(spefData);
 updatePagination();
 
