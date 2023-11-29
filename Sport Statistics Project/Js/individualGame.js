@@ -11,9 +11,13 @@ let max_page = num_games % num_games_per_page == 0 ? num_games / num_games_per_p
 let spefData = getGamesFromTeam(team);
 
 function addGames(spefData){
+    let date = getDates(spefData);
+    if(date.length>0){changeNumGames();}
+    spefData = getDatesInRange(spefData)
     spefData = spefData.slice((curr_page-1)*num_games_per_page, (curr_page-1)*num_games_per_page+num_games_per_page)
     list.innerHTML = '';
-    let date = getDates(spefData);
+    
+        
     date.forEach((date)=>{
         let label = document.createElement('strong')
         label.innerHTML = date + ":";
@@ -74,7 +78,9 @@ function getGamesFromTeam(team){
     return arr;
 }
 function updatePagination(){
+    max_page = num_games % num_games_per_page == 0 ? num_games / num_games_per_page : (num_games / num_games_per_page) + 1;
     const ul = document.querySelector("#pagination");
+    ul.innerHTML = '';
     for(let page = 1; page<=max_page; page++){
         const li = document.createElement('li');
         li.innerHTML = `<a class="pagination-link" aria-label="Goto page ${page}">${page}</a>`
@@ -87,6 +93,27 @@ function updatePagination(){
 
 }
 
+
 addGames(spefData);
 updatePagination();
 
+function changeNumGames(){
+    num_games = getDatesInRange(spefData).length;
+    updatePagination();
+}
+
+function getDatesInRange(spefData){
+    let arr = [];
+    
+    const dateInputStart = new Date(document.getElementById('dateStart').value).getTime();
+    const dateInputEnd = new Date(document.getElementById('dateEnd').value).getTime();
+
+
+    spefData.forEach((game)=>{
+        if(inRange(game.date, dateInputStart, dateInputEnd)){
+            arr.push(game)
+        }
+    })
+
+    return arr;
+}

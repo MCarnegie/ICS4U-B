@@ -35,6 +35,9 @@
         <div class="section">
                 <div class="columns">
                     <div class="column">
+                                <label for="week" class="label">PLease Select a Date</label>
+                                <input class="input" type="date" id="date" onchange="updateList()" requ ired>
+
                                 <form id="scoreForm" class="field">
                                     <label for="team1" class="label">Team 1: </label>
                                         <div class="select">
@@ -73,10 +76,6 @@
                                         </div>
                                     <label for="team2Score" class="label">Score: </label>
                                     <input class="input" type="number" id="team2Score" required>
-                                    
-                                    
-                                    <label for="week" class="label">What Date</label>
-                                    <input class="input" type="date" id="date" onchange="updateList()">
 
                                     <label for="week" class="label">Submit?</label>
                                     <button class="button" type="submit">Add Score</button>

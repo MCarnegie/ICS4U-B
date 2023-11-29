@@ -1,7 +1,7 @@
 //populating the table
 const tbody = document.querySelector('tbody')
 let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
-let sortedStats;
+let sortedStats;;
 var w;
 let thead = document.querySelector("thead");
 let headers = thead.querySelector("tr");
@@ -32,6 +32,7 @@ function updateWidth() {
 function updateTable(){
     let allStats = getAllStats();
     allStats = getNoSortPos(allStats)
+    sortedStats = allStats;
     addElements(allStats);
 }
 
