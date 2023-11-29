@@ -1,11 +1,11 @@
-// Get the form and list elements
+// Get the form and list the elements
 const form = document.getElementById('scoreForm');
 const list = document.getElementById('scoreList');
 
 // Check if local storage has existing scores
 let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
 
-// Function to update the list and save to local storage
+//this function updates the list and saves it to the local storage
 function updateList() {
     let date = new Date(document.getElementById("date").value);
     let time = date.getTime()
@@ -24,7 +24,8 @@ function updateList() {
     localStorage.setItem('scoreData', JSON.stringify(scoreData));
 }
 
-// Function to add game scores from the form
+/* this function adds 
+the games inputed from the form into the list*/
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const team1Select = document.getElementById('team1');
@@ -46,12 +47,9 @@ form.addEventListener('submit', (e) => {
     if (!isNaN(team1Score) && !isNaN(team2Score)) {
         const score = { team1, team1Score, team2, team2Score, date, dateFull};
         scoreData.push(score);
-        //team1Select.value = 'Team A';
-        team1ScoreInput.value = ''; // Clear the input field for Team 1
-        //team2Select.value = 'Team A';
-        team2ScoreInput.value = ''; // Clear the input field for Team 2
+        team1ScoreInput.value = '';
+        team2ScoreInput.value = ''; 
         updateList();
-        // updateTable();
     }
 });
 
@@ -59,7 +57,6 @@ form.addEventListener('submit', (e) => {
 function removeScore(index) {
     scoreData.splice(index, 1);
     updateList();
-    // updateTable();
 }
 
 // Initial list population

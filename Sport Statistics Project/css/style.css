@@ -21,6 +21,11 @@ nav.navbar {
     margin-top: 0em;
 }
 
-.card{
-    
+.button{
+    background-color:#38003c;
+    color: white;
+}
+
+.button:hover{
+    color: white;
 }
