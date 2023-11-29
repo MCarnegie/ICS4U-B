@@ -1,5 +1,5 @@
-//gets the table body, scoreData, table head, previous headers, and converters teh headers into an array
-//it also initilaizes variables that are used later
+// Gets the table body, scoreData, table head, previous headers, and converts the headers into an array
+// It also initializes variables that are used later
 const tbody = document.querySelector('tbody')
 let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
 let sortedStats;
@@ -9,7 +9,7 @@ let headers = thead.querySelector("tr");
 let allHeads = headers.innerHTML;
 let arr = Array.from(thead.querySelector("tr").children);
 
-/*This function updates the width of teh table if the screen gets to a certain width*/ 
+/* This function updates the width of the table if the screen gets to a certain width */
 function updateWidth() {
     w = window.innerWidth;
     if(w<=800){
@@ -32,8 +32,8 @@ function updateWidth() {
     }
 }
 
-/*this function updates the table to sort it by position decending 
-it also saves this state into sorted stats */
+/* This function updates the table to sort it by position descending 
+   It also saves this state into sortedStats */
 function updateTable(){
     let allStats = getAllStats();
     allStats = getNoSortPos(allStats)
@@ -41,7 +41,7 @@ function updateTable(){
     addElements(allStats);
 }
 
-/*this function sorts teh array of stats into position decending*/
+/* This function sorts the array of stats into position descending */
 function getNoSortPos(allStats){
     allStats.sort((a, b) =>{
         if(a.points>b.points){
@@ -56,13 +56,13 @@ function getNoSortPos(allStats){
     return allStats
 }
 
-/*variables for pagination*/
+/* Variables for pagination */
 let num_teams = getTeams().length;
 let num_teams_per_page = 5;
 let curr_page = 1;
 let max_page = num_teams % num_teams_per_page == 0 ? num_teams / num_teams_per_page : (num_teams / num_teams_per_page) + 1;
 
-/*this function addes elements to the table based on pagination and width of table*/
+/* This function adds elements to the table based on pagination and width of the table */
 function addElements(stats) {
     tbody.innerHTML = '';
     stats = stats.slice((curr_page-1)*num_teams_per_page, (curr_page-1)*num_teams_per_page+num_teams_per_page)
@@ -93,7 +93,7 @@ function addElements(stats) {
     })
 }
 
-/*this function updates the pagination of the table*/
+/* This function updates the pagination of the table */
 function updatePagination(){
     const ul = document.querySelector("#pagination");
     for(let page = 1; page<=max_page; page++){
@@ -109,7 +109,8 @@ function updatePagination(){
 }
 
 
-/*this function gets all the teams inputed*/
+/* This function gets the stats of one team based on all of the games
+   and makes it into a class that can be used for the table */
 function getTeams() {
     let arr =[]
     scoreData.forEach((team)=>{
@@ -173,7 +174,7 @@ function getTeamStats(team) {
     
 }
 
-/*this function gets all the stats of every team and puts it into an array*/
+/* This function gets all the stats of every team and puts it into an array */
 function getAllStats() {
     let teams = getTeams();
     let allStats = []
@@ -187,7 +188,7 @@ function getAllStats() {
     return allStats
 }
 
-/*the rest of these functions sort the table wort to best or vice versa based on the header clicked.*/ 
+/* The rest of these functions sort the table worth to best or vice versa based on the header clicked. */
 let isOn = true
 function decending(sort) {
     let allStats = getAllStats();

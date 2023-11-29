@@ -1,0 +1,58 @@
+[
+    {
+      "team1": "Leicester City",
+      "team1Score": 2,
+      "team2": "Arsenal",
+      "team2Score": 1,
+      "date": 1698796800000,
+      "dateFull": "2023-11-01"
+    },
+    {
+      "team1": "Tottenham Hotspur",
+      "team1Score": 2,
+      "team2": "Leicester City",
+      "team2Score": 1,
+      "date": 1698796800000,
+      "dateFull": "2023-11-01"
+    },
+    {
+      "team1": "Manchester United",
+      "team1Score": 1,
+      "team2": "Stoke City",
+      "team2Score": 2,
+      "date": 1698883200000,
+      "dateFull": "2023-11-02"
+    },
+    {
+      "team1": "Leicester City",
+      "team1Score": 4,
+      "team2": "Arsenal",
+      "team2Score": 1,
+      "date": 1698883200000,
+      "dateFull": "2023-11-02"
+    },
+    {
+      "team1": "Leicester City",
+      "team1Score": 2,
+      "team2": "Leicester City",
+      "team2Score": 1,
+      "date": 1698796800000,
+      "dateFull": "2023-11-01"
+    },
+    {
+      "team1": "Chelsea",
+      "team1Score": 2,
+      "team2": "Arsenal",
+      "team2Score": 1,
+      "date": 1698969600000,
+      "dateFull": "2023-11-03"
+    },
+    {
+      "team1": "Leicester City",
+      "team1Score": 2,
+      "team2": "Tottenham Hotspur",
+      "team2Score": 1,
+      "date": 1698969600000,
+      "dateFull": "2023-11-03"
+    }
+  ]

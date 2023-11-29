@@ -10,8 +10,8 @@ let curr_page = 1;
 let max_page = num_games % num_games_per_page == 0 ? num_games / num_games_per_page : (num_games / num_games_per_page) + 1;
 let spefData = getGamesFromTeam(team);
 
-/*this function adds the games of the specifc team to a list*/
-/*it updates pagination based on the amount of teams in the date range*/
+/* This function adds the games of the specific team to a list */
+/* It updates pagination based on the amount of teams in the date range */
 function addGames(spefData){
     let date = getDates(spefData);
     if(date.length>0){changeNumGames();}
@@ -45,7 +45,7 @@ function addGames(spefData){
     
 }
 
-/*this gets all the dates of the team*/
+/* This gets all the dates of the team */
 function getDates(spefData){
     let arr = [];
     
@@ -71,7 +71,7 @@ function inRange(date, dateStart, dateEnd){
     }
 }
 
-/*this gets all the games in score data that have the team*/
+/* This gets all the games in score data that have the team */
 function getGamesFromTeam(team){
     let arr = [];
     scoreData.forEach((game)=>{
@@ -82,7 +82,7 @@ function getGamesFromTeam(team){
     return arr;
 }
 
-/*this function updates the pagination based on the date range*/
+/* This function updates the pagination based on the date range */
 function updatePagination(){
     max_page = num_games % num_games_per_page == 0 ? num_games / num_games_per_page : (num_games / num_games_per_page) + 1;
     const ul = document.querySelector("#pagination");
@@ -103,14 +103,14 @@ function updatePagination(){
 addGames(spefData);
 updatePagination();
 
-/*this function changes teh variable num_games for pagination*/
+/* This function changes the variable num_games for pagination */
 function changeNumGames(){
     num_games = getDatesInRange(spefData).length;
     updatePagination();
 }
 
-/*this function gets all the games that 
-have their date in range of the start and end date*/
+/* This function gets all the games that 
+have their date in range of the start and end date */
 function getDatesInRange(spefData){
     let arr = [];
     

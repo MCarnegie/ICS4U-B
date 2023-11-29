@@ -5,7 +5,7 @@ const list = document.getElementById('scoreList');
 // Check if local storage has existing scores
 let scoreData = JSON.parse(localStorage.getItem('scoreData')) || [];
 
-//this function updates the list and saves it to the local storage
+// This function updates the list and saves it to local storage
 function updateList() {
     let date = new Date(document.getElementById("date").value);
     let time = date.getTime()
@@ -24,8 +24,8 @@ function updateList() {
     localStorage.setItem('scoreData', JSON.stringify(scoreData));
 }
 
-/* this function adds 
-the games inputed from the form into the list*/
+/* This function adds 
+the games inputted from the form into the list */
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const team1Select = document.getElementById('team1');
@@ -53,7 +53,7 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-// Function to remove a score from the list
+// Function to remove a score from the lis
 function removeScore(index) {
     scoreData.splice(index, 1);
     updateList();
