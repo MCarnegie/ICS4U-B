@@ -1,0 +1,1 @@
+import{_ as e,o as c,c as a,a as s}from"./index-132a6e74.js";const o={},t={class:"jamaica"},_=s("h1",null,"JARATSTSTST",-1),n=[_];function r(i,d){return c(),a("div",t,n)}const f=e(o,[["render",r]]);export{f as default};
