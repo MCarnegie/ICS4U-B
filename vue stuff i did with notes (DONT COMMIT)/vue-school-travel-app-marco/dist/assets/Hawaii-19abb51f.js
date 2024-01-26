@@ -1,1 +1,0 @@
-import{_ as e,o as s,c,a as o}from"./index-132a6e74.js";const t={},a={class:"hawaii"},_=o("h1",null,"HAWAIIISIIS",-1),n=[_];function r(i,d){return s(),c("div",a,n)}const f=e(t,[["render",r]]);export{f as default};
