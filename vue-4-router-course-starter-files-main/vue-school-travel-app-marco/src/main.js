@@ -1,12 +1,9 @@
-import { createApp } from "vue"
-import router from "@/router"
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from '@/router'
+import AppLink from '@/components/AppLink.vue'
 
-import App from "./App.vue"
-
-import "@/assets/main.css"
-
-const app = createApp(App)
-
-app.use(router)
-
-app.mount("#app")
+createApp(App)
+.component('AppLink', AppLink)
+.use(router)
+.mount('#app')
