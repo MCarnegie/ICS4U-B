@@ -25,6 +25,25 @@
   </section>
 </div>
 </template>
+<!-- composition api -->
+<!-- <script setup>
+import {ref, reactive, defineProps, computed} from 'vue'
+import sourceData from "@/data.json";
+import ExperienceCard from "@/components/ExperienceCard.vue";
+import GoBack from '@/components/GoBack.vue'
+
+const props = defineProps({
+  id: { type: Number, required: true }
+})
+
+const destination = computed(()=> {
+      return sourceData.destinations.find(
+        (destination) => destination.id === this.id
+      );
+}) -->
+
+
+
 <script>
 import sourceData from "@/data.json";
 import ExperienceCard from "@/components/ExperienceCard.vue";
