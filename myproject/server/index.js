@@ -4,9 +4,6 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 require('./db');
 
-
-
-
 const uri = "mongodb+srv://dbUser:<marco123>@clusterexample1.cvd2h0j.mongodb.net/?retryWrites=true&w=majority"
 
 const app = express();
