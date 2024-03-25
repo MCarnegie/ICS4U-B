@@ -5,6 +5,9 @@ const mongoose = require('mongoose')
 
 const Event = require('./modles/Event');
 
+const Team = require('./modles/Team');
+const event = require('./modles/Event');
+
 require('./db');
 
 const app = express();
@@ -17,14 +20,35 @@ app.listen(PORT, ()=>{
     console.log(`server running on port ${PORT}`);
 })
 
-app.get('/api/events', async (req, res)=>{
+app.get('/api/teams', async (req,res)=>{
     try{
-        const events = await Event.find({});
+        const teams = await Team.find({})
+        res.json(teams)
+    }catch (err){
+        res.status(500).json({error: err.message});
+    }
+})
+
+app.post('/api/teams',  async (req,res)=>{
+    try{
+        const team = new Team(req.body)
+        await team.save()
+        res.json(team)
+    }catch (err){
+        res.status(500).json({error: err.message});
+    }
+})
+
+app.get('/api/teams/:name/events', async (req, res)=>{
+    try{
+        const events = await Event.find( {whatTeam: req.params['name']})
         res.json(events)
     }catch (err){
         res.status(500).json({error: err.message});
     }
 })
+
+
 
 app.get('/api/events/:id', async (req, res) =>{
     try{
@@ -37,7 +61,7 @@ app.get('/api/events/:id', async (req, res) =>{
     }
 })
 
-app.post('/api/events', async (req, res) =>{
+app.post('/api/teams/events', async (req, res) =>{
     try{        
         const event = new Event(req.body);
         await event.save();

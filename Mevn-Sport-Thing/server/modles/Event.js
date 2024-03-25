@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+//can be used for a game or package
 const eventSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -25,6 +25,7 @@ const eventSchema = new mongoose.Schema({
     notes: String,
     imageUrl: String,
     id: Number,
+    whatTeam: String,
 })
 
 const event = mongoose.model('Event', eventSchema);
