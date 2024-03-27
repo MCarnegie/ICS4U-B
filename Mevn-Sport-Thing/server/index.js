@@ -6,7 +6,9 @@ const mongoose = require('mongoose')
 const Event = require('./modles/Event');
 
 const Team = require('./modles/Team');
-const event = require('./modles/Event');
+
+const League = require('./modles/League')
+
 
 require('./db');
 
@@ -20,14 +22,17 @@ app.listen(PORT, ()=>{
     console.log(`server running on port ${PORT}`);
 })
 
-app.get('/api/teams', async (req,res)=>{
-    try{
-        const teams = await Team.find({})
-        res.json(teams)
-    }catch (err){
+app.get('/api/league/:leaguename', async (req,res) =>{
+    try {
+        const teams = await Team.find({whatLeague: req.params['leaguename']})
+        let teamNames = [];
+        teams.forEach(team => teamNames.push(team.name))
+        res.json(teamNames)
+    } catch (error) {
         res.status(500).json({error: err.message});
     }
 })
+
 
 app.post('/api/teams',  async (req,res)=>{
     try{
@@ -39,29 +44,23 @@ app.post('/api/teams',  async (req,res)=>{
     }
 })
 
-app.get('/api/teams/:name/events', async (req, res)=>{
+
+//get and post events based on team
+app.get('/api/league/:teamname/events', async (req, res)=>{
     try{
-        const events = await Event.find( {whatTeam: req.params['name']})
-        res.json(events)
+        const events = await Event.find( {whatTeam: req.params['teamname']})
+        let eventsArr = []
+        events.forEach(a =>{
+            eventsArr.push({name: a.name, description: a.description, notes: a.notes})
+        })
+        res.json(eventsArr)
     }catch (err){
         res.status(500).json({error: err.message});
     }
 })
 
 
-
-app.get('/api/events/:id', async (req, res) =>{
-    try{
-    
-        const event = await Event.findOneAndUpdate(req.params.id);
-        
-        res.json(event)
-    }catch (err){
-        res.status(500).json({error: err.message});
-    }
-})
-
-app.post('/api/teams/events', async (req, res) =>{
+app.post('/api/events', async (req, res) =>{
     try{        
         const event = new Event(req.body);
         await event.save();
@@ -69,10 +68,4 @@ app.post('/api/teams/events', async (req, res) =>{
     }catch (err){
         res.status(500).json({error: err.message});
     }
-})
-
-app.delete('/api/events/:id', async (req, res)=>{
-    const event = await Event.findOneAndDelete(req.params.id);
-    if(!event) return res.status(404).send('event not found')
-   
 })
