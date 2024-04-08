@@ -16,6 +16,7 @@ router.post('/login', (req, res, next) => {
       console.log(err)
     }
     if (!user) {
+
       return res.redirect('/login'); // Redirect to login page
     }
     req.logIn(user, (err) => {
@@ -31,7 +32,8 @@ router.post('/login', (req, res, next) => {
       const token = jwt.sign(jwt_USER, `${process.env.JWT_SECRET}`, { expiresIn: '1h' });
       return res.status(200).json({ token });
     });
-  })(req, res, next);
+  })
+  (req, res, next);
 });
 
 router.get('/logout', (req, res) => {
@@ -69,7 +71,7 @@ router.post('/register', async (req, res) => {
   
       // Save the new user to the database
       await newUser.save();
-  
+      console.log("we be getting new shit(users)" + `${email}, ${password}`)
       return res.status(201).json({ message: 'User created successfully.' });
     } catch (error) {
       console.error('Error registering user:', error);

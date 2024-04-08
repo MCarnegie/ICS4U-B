@@ -68,9 +68,22 @@ const isAuthenticated = (req, res, next) => {
     };
   };
 
+app.get('/api/league', async (req,res) =>{
+    try {
+        const league = await Team.find({})
+        let whatLeague = [];
+        league.forEach(league => whatLeague.push(league.whatLeague));
+        whatLeague = [...new Set(whatLeague)]
+        res.json(whatLeague)
+    } catch (error) {
+        res.status(500).json({error: err.message});
+    }
+})
+
+
 app.get('/api/league/:leaguename', async (req,res) =>{
     try {
-        const teams = await Team.find({whatLeague: req.params['leaguename']})
+        const teams = await Team.find({whatLeague: req.params['leaguename'].replace(/%20/g, "")})
         let teamNames = [];
         teams.forEach(team => teamNames.push(team.name))
         res.json(teamNames)
@@ -82,6 +95,7 @@ app.get('/api/league/:leaguename', async (req,res) =>{
 
 app.post('/api/teams',isAuthenticated, hasPermission('admin'),  async (req,res)=>{
     try{
+
         const team = new Team(req.body)
         await team.save()
         res.json(team)
@@ -94,7 +108,9 @@ app.post('/api/teams',isAuthenticated, hasPermission('admin'),  async (req,res)=
 //get and post events based on team
 app.get('/api/league/:teamname/events', async (req, res)=>{
     try{
+    
         const events = await Event.find( {whatTeam: req.params['teamname']})
+        console.log(req.params['teamname'])
         let eventsArr = []
         events.forEach(a =>{
             eventsArr.push({name: a.name, description: a.description, notes: a.notes})
@@ -107,7 +123,8 @@ app.get('/api/league/:teamname/events', async (req, res)=>{
 
 
 app.post('/api/events', isAuthenticated, hasPermission('admin'), async (req, res) =>{
-    try{        
+    try{    
+      console.log("here")    
         const event = new Event(req.body);
         await event.save();
         res.json(event)
@@ -117,21 +134,5 @@ app.post('/api/events', isAuthenticated, hasPermission('admin'), async (req, res
 })
 
 
-//change some of this stuff to like a homepage or somthing
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the application!');
-  });
-  
-  app.get('/login', (req, res) => {
-    res.send('This is the Login Page')
-  });
-  
-  app.get('/dashboard', (req, res) => {
-    res.send('Welcome to the dashboard!');
-  });
-  
-  app.get('/logoutConfirmed', (req, res) => {
-    res.send('You have logged out!');
-  });
   
