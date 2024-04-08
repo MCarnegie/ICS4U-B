@@ -4,6 +4,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const User = require('../modles/User'); // Define your User model
 
+//checks to see if a user is there
 passport.use(new LocalStrategy(
   { usernameField: 'email' },
   async (email, password, done) => {

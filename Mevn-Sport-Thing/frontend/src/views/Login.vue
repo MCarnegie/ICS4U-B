@@ -44,9 +44,7 @@
           this.loginError = 'Failed to login. Please check your credentials and try again.';
         }
       },
-      async logout(){
-          await this.$store.dispatch('logoutUser')
-      }
+
     }
   };
   </script>
