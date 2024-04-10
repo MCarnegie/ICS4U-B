@@ -1,19 +1,29 @@
 <template>
-    <div class="login-container">
-      <h2>Login</h2>
-      <form @submit.prevent="login">
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" v-model="email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" v-model="password" required>
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <p v-if="loginError" class="error-message">{{ loginError }}</p>
-      <h2>No account? <RouterLink to="/auth/registier">registier</RouterLink></h2>
+
+
+    <div class="columns is-centered">
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-content">
+                  <h1 class="title">Login</h1>
+                  <form @submit.prevent="login">
+                    <div class="field">
+                      <label for="email" class="label">Email:</label>
+                      <input type="email" id="email" v-model="email" class="input" required>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="password">Password:</label>
+                      <input class="input" type="password" id="password" v-model="password" required>
+                    </div>
+                    <button type="submit" class="button">Login</button>
+                  </form>
+                  <h1 v-if="loginError" class="error-message">{{ loginError }}</h1>
+                  <h1>No account? <RouterLink to="/auth/registier">registier</RouterLink></h1>
+              </div>
+              
+            </div>
+            
+          </div>
     </div>
 
   </template>
@@ -52,7 +62,7 @@
   </script>
   
   <style scoped>
-  .login-container {
+  /* .login-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -80,9 +90,9 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+  */
   .error-message {
     color: red;
-  }
+  } 
   </style>
   

@@ -36,9 +36,23 @@ export default {
 <template>
     <body>
         <Suspense>
-          <li v-for="team in teams" :key="team">
-            <router-link :to="`/league/${team}/events`">{{ team }}</router-link>
-          </li>
+          <section class="section">
+            <div class="container is-flex is-justify-content-center">
+              <table class="table is-centered is-size-4">
+                <thead>
+                  <tr>
+                    <th>Teams Available</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Assuming 'leagues' is a Vue.js data property -->
+                  <tr v-for="team in teams" :key="team">
+                    <td><strong>  <router-link :to="`/league/${team}/events`">{{ team }}</router-link></strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
           
         </Suspense>
 

@@ -1,17 +1,41 @@
 
 <template>
-  <header>
 <!-- the things here would just be stuff that goes across all pages (navbar) -->
-      <nav> 
+      <!-- <nav> 
             <RouterLink to="/">Home</RouterLink>
             <RouterLink to="/league">Scheduale</RouterLink>
             <RouterLink to="/auth/login" v-if="!isLoggedIn">Login</RouterLink>
             <button v-if="isLoggedIn" @click="logout">Logout</button>
             <RouterLink to="/create" v-if="checkRole === 'admin'">Create New Things</RouterLink>
             <RouterLink to="/delete" v-if="checkRole === 'admin'">Delete Stuff</RouterLink>
-        </nav>
-    
-  </header>
+        </nav> -->
+        <header>
+        <section class="section">
+          <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <h1 class="navbar-item title">Sport Schedule Website</h1>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu is-active">
+              <div class="navbar-end" >
+                <RouterLink to="/" class="navbar-item">Home</RouterLink>
+                <RouterLink to="/league" class="navbar-item">Schedule</RouterLink>
+                <RouterLink to="/auth/login" v-if="!isLoggedIn" class="navbar-item">Login</RouterLink>
+                <a href="" @click="logout" v-if="isLoggedIn" class="navbar-item">Logout</a>
+                <div class="navbar-item has-dropdown is-hoverable" v-if="checkRole === 'admin'">
+                  <a class="navbar-link">
+                    Admin Stuff
+                  </a>
+                  <div class="navbar-dropdown">
+                    <RouterLink to="/create" v-if="checkRole === 'admin'" class="navbar-item">Create New Things</RouterLink>
+                    <hr class="navbar-divider">
+                    <RouterLink to="/delete" v-if="checkRole === 'admin'" class="navbar-item">Delete Stuff</RouterLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </section>
+        </header>
         
     <RouterView/>
   
@@ -29,8 +53,7 @@ export default {
   
     computed: {
       isLoggedIn() {
-        
-        // Access the isLoggedIn state from Vuex store or local component state
+
         return this.$store.state.user.isLoggedIn; // Example for Vuex
       },
       username() {
@@ -59,6 +82,7 @@ export default {
         
         location.reload()
       },
+      
       
     }
   };

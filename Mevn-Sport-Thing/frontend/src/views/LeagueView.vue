@@ -30,9 +30,24 @@ export default {
 <template>
     <body>
         <Suspense>
-          <li v-for="league in leagues" :key="league">
-            <router-link :to="`/league/${league}`">{{ league }}</router-link>
-          </li>
+          <section class="section">
+            <div class="container is-flex is-justify-content-center">
+              <table class="table is-centered is-size-4">
+                <thead>
+                  <tr>
+                    <th>Leagues Available</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Assuming 'leagues' is a Vue.js data property -->
+                  <tr v-for="league in leagues" :key="league">
+                    <td><strong> <router-link :to="`/league/${league}`">{{ league }}</router-link></strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          
           
         </Suspense>
         

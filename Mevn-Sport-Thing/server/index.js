@@ -132,7 +132,15 @@ app.get('/api/league/:teamname/events', async (req, res)=>{
         console.log(req.params['teamname'])
         let eventsArr = []
         events.forEach(a =>{
-            eventsArr.push({name: a.name, description: a.description, notes: a.notes})
+            eventsArr.push({
+                name: a.name, 
+                description: a.description, 
+                time: a.time,
+                location: a.location,
+                date: a.date,
+                teams: a.teams,
+                notes: a.notes
+            })
         })
         res.json(eventsArr)
     }catch (err){

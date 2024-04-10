@@ -1,19 +1,26 @@
 <template>
-    <div class="login-container">
-      <h2>Login</h2>
-      <form @submit.prevent="registier">
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" v-model="formData.email" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" v-model="formData.password" required>
-        </div>
-        <button type="submit">registier</button>
-      </form>
 
-      
+    <div class="columns is-centered">
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-content">
+                  <h1 class="title">Registier New Account</h1>
+                  <form @submit.prevent="registier">
+                    <div class="field">
+                      <label class="label" for="email">Email:</label>
+                      <input class="input" type="email" id="email" v-model="formData.email" required>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="password">Password:</label>
+                      <input class="input" type="text" id="password" v-model="formData.password" required>
+                    </div>
+                    <button type="submit" class="button">registier</button>
+                  </form>
+              </div>
+              
+            </div>
+            
+          </div>
     </div>
 
   </template>
@@ -41,6 +48,7 @@ export default {
                 role: "admin"
                 
             });
+            location.reload()
             console.log("idk if it worked")
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -58,7 +66,7 @@ export default {
   </script>
   
   <style scoped>
-  .login-container {
+  /* .login-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -85,7 +93,7 @@ export default {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
+  } */
   
   .error-message {
     color: red;

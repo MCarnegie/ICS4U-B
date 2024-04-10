@@ -111,51 +111,89 @@ export default {
 
 <template>
     <body>
+        <div class="columns is-flex-direcction-column">
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-content">
+                        <form @submit.prevent="deleteLeague">
+                            <div class="field">
+                            <label for="email" class="label">Choose League</label>
+                            <div class="select">
+                                <select name="leagues" id="leagues"  v-model="whatToDelete.whatLeague">
+                            
+                                     <option v-for="league in leagueNames" v-bind:value="league">{{ league }}</option>
+                            
+                                </select>
+                            </div>
+                            
+                            </div>
+                            <button type="submit" class="button">Delete League</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <form @submit.prevent="deleteTeam">
+                            <div class="field">
+                            <label for="email" class="label">Choose team to delete</label>
+                            <div class="select">
+                                <select name="teams" id="teams"  v-model="whatToDelete.whatTeam">
+                            
+                                     <option v-for="team in teamNames" v-bind:value="team">{{ team }}</option>
+                            
+                                </select>
+                            </div>
+                            
+                            </div>
+                            <button type="submit" class="button">Delete Team</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <form @submit.prevent="deleteEvent">
+                            <div class="field">
+                            <label for="email" class="label">Choose team for event</label>
+                            <div class="select">
+                                <select name="teams" id="teams"  v-model="teamSelectForEvent.whatTeam">
+                            
+                                    <option v-for="team in teamNames" v-bind:value="team">{{ team }}</option>
+                            
+                                </select>
+                            </div>
+                            </div>
+                            <div class="field">
+                                <div v-if="teamSelectForEvent.teamIsSelected">
+                                    <label for="email" class="label">Choose Event</label>
+                                    <div class="select">
+                                        <select name="events" id="events"  v-model="whatToDelete.whatEvent">
+                                    
+                                            <option v-for="event in eventsBasedOffTeam" v-bind:value="event">{{ event }}</option>
+                                    
+                                        </select>
+                                    </div>
+                               
+                                 </div>
+                            </div>
+                            
+                                <button type="submit" class="button">Delete Event</button>
+                            
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
         
-        <form @submit.prevent="deleteLeague">
-            <div class="form-group">
-              <label for="email">Choose League</label>
-              <select name="leagues" id="leagues"  v-model="whatToDelete.whatLeague">
-               
-               <option v-for="league in leagueNames" v-bind:value="league">{{ league }}</option>
-               
-              </select>
-            </div>
-            <button type="submit">Delete League</button>
-        </form>
 
-        <form @submit.prevent="deleteTeam">
-            <div class="form-group">
-              <label for="email">Choose team to delete</label>
-              <select name="teams" id="teams"  v-model="whatToDelete.whatTeam">
-               
-               <option v-for="team in teamNames" v-bind:value="team">{{ team }}</option>
-               
-              </select>
-            </div>
-            <button type="submit">Delete Team</button>
-        </form>
 
-        <form @submit.prevent="deleteEvent">
-            <div class="form-group">
-              <label for="email">Choose team for event</label>
-              <select name="teams" id="teams"  v-model="teamSelectForEvent.whatTeam">
-               
-               <option v-for="team in teamNames" v-bind:value="team">{{ team }}</option>
-               
-              </select>
-            <div v-if="teamSelectForEvent.teamIsSelected">
-                <label for="email">Choose Event</label>
-                <select name="events" id="events"  v-model="whatToDelete.whatEvent">
-                
-                <option v-for="event in eventsBasedOffTeam" v-bind:value="event">{{ event }}</option>
-                
-                </select>
-            </div>
-                
-            </div>
-            <button type="submit">Delete Team</button>
-        </form>
+
+        
     </body>
 </template>
 

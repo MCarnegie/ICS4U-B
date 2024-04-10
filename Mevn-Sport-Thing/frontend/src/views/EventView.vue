@@ -41,15 +41,48 @@ export default {
 <template>
     <body>
         <Suspense>
-          <li v-for="event in events" :key="event">
-            <h1>{{ event.name }}</h1>
-            <p>{{ event.description }}</p>
-            <p>{{ event.notes }}</p>
-          </li>
+          <section class="section" v-if="!isthereNoEvents">
+            <div class="container is-flex is-justify-content-center">
+              <table class="table is-centered is-size-4">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Teams</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Assuming 'leagues' is a Vue.js data property -->
+                  <tr v-for="event in events" :key="event">
+                    <td><strong> {{ event.name }} </strong></td>
+                    <td><strong> {{ event.description }} </strong></td>
+                    <td><strong> {{ event.time }} </strong></td>
+                    <td><strong> {{ event.location }} </strong></td>
+                    <td><strong> {{ event.date }} </strong></td>
+                    <td><strong> {{ event.teams }} </strong></td>
+                    <td><strong> {{ event.notes }} </strong></td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
           
         </Suspense>
-        <h1 v-if="isthereNoEvents"> no events</h1>
-        
+        <section class="hero"  v-if="isthereNoEvents">
+            <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title" >
+                No Events Avaliable
+                </h1>
+                
+            </div>
+            </div>
+        </section>
         
  
     </body>
