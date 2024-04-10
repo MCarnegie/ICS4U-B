@@ -27,7 +27,7 @@ export default {
 
     return {
       teams,
-      link
+      link,
     };
   }
 };
@@ -41,7 +41,7 @@ export default {
           </li>
           
         </Suspense>
-        
+
         
         
  

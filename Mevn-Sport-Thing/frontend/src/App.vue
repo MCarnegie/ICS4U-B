@@ -7,7 +7,8 @@
             <RouterLink to="/league">Scheduale</RouterLink>
             <RouterLink to="/auth/login" v-if="!isLoggedIn">Login</RouterLink>
             <button v-if="isLoggedIn" @click="logout">Logout</button>
-            
+            <RouterLink to="/create" v-if="checkRole === 'admin'">Create New Things</RouterLink>
+            <RouterLink to="/delete" v-if="checkRole === 'admin'">Delete Stuff</RouterLink>
         </nav>
     
   </header>
@@ -20,7 +21,12 @@ import { RouterLink, RouterView } from 'vue-router'
 import HomeView from './views/HomeView.vue'
 import store from './stores'
 import { mapActions } from 'vuex';
+import AuthService from '@/services/AuthService';
+import { onMounted } from 'vue';
+import router from './router';
+
 export default {
+  
     computed: {
       isLoggedIn() {
         
@@ -31,13 +37,29 @@ export default {
         // Optionally, you can display the username if available
         return this.$store.state.user.username; // Example for Vuex
       },
+      checkRole(){
+        
+        try {
+          let token = localStorage.getItem('token')
+          token = AuthService.decodeToken(token)
+          return token.role
+        } catch (error) {
+          return "regular user"
+        }
+        
+      },
+      
+      
       
     },
     methods:{
       ...mapActions(['logoutUser']),
       async logout(){
         await this.$store.dispatch('logoutUser')
-      }
+        
+        location.reload()
+      },
+      
     }
   };
 

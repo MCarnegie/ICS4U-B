@@ -10,7 +10,7 @@ const Event = require('./modles/Event');
 
 const Team = require('./modles/Team');
 
-const League = require('./modles/League')
+const League = require('./modles/League');
 
 
 require('./authentication/passport');
@@ -47,10 +47,12 @@ app.listen(PORT, ()=>{
 
 const isAuthenticated = (req, res, next) => {
     // Passport adds 'req.user' property if user is authenticated
-    if (req.isAuthenticated()) {
+    if (req.isAuthenticated) {
       // User is authenticated, proceed to the next middleware
+      console.log("authenticated")
       return next();
     }
+    console.log("not authenticated")
     // User is not authenticated, redirect to login page or send error response
     res.send("not authenticated"); // Redirect to login page
   };
@@ -59,10 +61,13 @@ const isAuthenticated = (req, res, next) => {
   const hasPermission = (requiredRole) => {
     return (req, res, next) => {
       // Check if user has the required role/permission
-      if (req.user && req.user.role === requiredRole) {
+        
+      if (req.body.role === requiredRole) {
         // User has the required role/permission, proceed to the next middleware
+        console.log("is admin")
         return next();
       }
+      console.log("dosent have permission")
       // User does not have the required role/permission, send error response
       res.status(403).send('Forbidden'); // Send 403 Forbidden status
     };
@@ -92,12 +97,26 @@ app.get('/api/league/:leaguename', async (req,res) =>{
     }
 })
 
+app.get('/api/allteams', async (req,res)=>{
+    try{
+        const teams = await Team.find({})
+        let teamNames = []
+        teams.forEach((val)=>{
+            teamNames.push(val.name)
+        })
+        res.json(teamNames);
+    }catch(err){
+
+    }
+})
+
 
 app.post('/api/teams',isAuthenticated, hasPermission('admin'),  async (req,res)=>{
     try{
 
         const team = new Team(req.body)
         await team.save()
+        console.log("worked2")
         res.json(team)
     }catch (err){
         res.status(500).json({error: err.message});
@@ -121,10 +140,24 @@ app.get('/api/league/:teamname/events', async (req, res)=>{
     }
 })
 
+app.get('/api/specificEvent/:team', async (req, res) =>{
+
+    console.log(req.params['team'])
+    // let league =team.slice(req.body.whatTeam.indexOf(" ")+2, team.length-1)
+    const events = await Event.find({whatTeam: req.params['team']});
+   
+    let eventsArr = []
+        events.forEach(a =>{
+            eventsArr.push(a.name)
+        })
+        console.log(eventsArr)
+    res.json(eventsArr)
+})
+
 
 app.post('/api/events', isAuthenticated, hasPermission('admin'), async (req, res) =>{
     try{    
-      console.log("here")    
+      console.log("here14")    
         const event = new Event(req.body);
         await event.save();
         res.json(event)
@@ -133,6 +166,41 @@ app.post('/api/events', isAuthenticated, hasPermission('admin'), async (req, res
     }
 })
 
+app.delete('/api/deleteLeague', isAuthenticated, hasPermission('admin'), async (req,res)=>{
+    try {
+        await Team.deleteMany({"whatLeague": req.body.whatLeague})
+        res.status(200).json({ message: 'League deleted successfully' });
+        
+    } catch (error) {
+        console.error('Error deleting data:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+})
 
+app.delete('/api/deleteTeam', isAuthenticated, hasPermission('admin'), async (req,res)=>{
+    try {
+        
+
+        await Team.deleteOne({"name": req.body.whatTeam})
+        res.status(200).json({ message: 'Team deleted successfully' });
+        
+    } catch (error) {
+        console.error('Error deleting data:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+})
+
+app.delete('/api/deleteEvent', isAuthenticated, hasPermission('admin'), async(req,res)=>{
+    try {
+        
+        console.log("in delete event: " + req.body.whatEvent)
+        await Event.deleteOne({"name": req.body.whatEvent})
+        res.status(200).json({ message: 'Team deleted successfully' });
+        
+    } catch (error) {
+        console.error('Error deleting data:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+})
 
   

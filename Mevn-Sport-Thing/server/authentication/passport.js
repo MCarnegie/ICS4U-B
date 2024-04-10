@@ -15,7 +15,6 @@ passport.use(new LocalStrategy(
       if (!user || !(await bcrypt.compare(password, user.password))) {
         return done(null, false, { message: 'Incorrect email or password.' });
       }
-
       return done(null, user);
     } catch (error) {
       return done(error);

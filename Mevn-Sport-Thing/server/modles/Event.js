@@ -1,30 +1,15 @@
 const mongoose = require('mongoose')
 //can be used for a game or package
 const eventSchema = new mongoose.Schema({
-    name:{
-        type: String,
-        
-    },
+    name:String,
     description: String,
-    time:{
-        type: Number,
-        
-    },
-    location:{
-        type: String,
-        
-    },
-    date:{
-        type: Number,
-       
-    },
-    teams:{
-        type: String,
-       
-    },
+    time:String,
+    location:String,
+    date: String,
+    teams: String,
     notes: String,
     imageUrl: String,
-    id: Number,
+    id: String,
     whatTeam: String,
 })
 

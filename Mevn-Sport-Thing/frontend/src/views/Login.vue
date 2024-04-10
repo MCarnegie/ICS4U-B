@@ -38,7 +38,9 @@
           await this.$store.dispatch('loginUser', { email: this.email, password: this.password });
 
           // If login successful, redirect to dashboard or desired page
+          location.reload()
           this.$router.push({ name: 'home' });
+          
         } catch (error) {
           console.log(error)
           this.loginError = 'Failed to login. Please check your credentials and try again.';
