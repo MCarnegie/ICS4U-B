@@ -181,73 +181,7 @@ export default {
             </div>
           </div>
         </div>
-          <!-- <div>
-            <form @submit.prevent="createTeam">
-            <div class="field">
-              <label for="email" class="label">Name:</label>
-              <div class="control">
-                <input class="input" type="test" id="email" v-model="teamData.name" required>
-              </div>
-              
-            </div>
-            <div class="form-group">
-              <label for="email">Create New League</label>
-              <input type="text"  v-model="teamData.whatLeague">
-            </div>
-            <div class="form-group">
-              <label for="email">Choose Existing League</label>
-              <select name="leagues" id="leagues"  v-model="teamData.whatLeague">
-               
-               <option v-for="league in leagueNames" v-bind:value="league">{{ league }}</option>
-               
-              </select>
-            </div>
-            <button type="submit">Create Your Team</button>
-            </form>
-          </div>
-
-          <div>
-            <form @submit.prevent="createEvent">
-            <div class="form-group">
-              <label>Name:</label>
-              <input type="test" v-model="eventData.name" required>
-            </div>
-            <div class="form-group">
-              <label>Description</label>
-              <input type="text"  v-model="eventData.description" required>
-            </div>
-            <div class="form-group">
-              <label>Time</label>
-              <input type="text"  v-model="eventData.time" required>
-            </div>
-            <div class="form-group">
-              <label>Location</label>
-              <input type="text"  v-model="eventData.location" required>
-            </div>
-            <div class="form-group">
-              <label>Date</label>
-              <input type="text"  v-model="eventData.date" required>
-            </div>
-            <div class="form-group">
-              <label>teams</label>
-              <input type="text"  v-model="eventData.teams" required>
-            </div>
-            <div class="form-group">
-              <label>notes</label>
-              <input type="text"  v-model="eventData.notes" required>
-            </div>
-            <div class="form-group">
-              <label>What team is this for And which team is this league in </label>
-              <select name="teams" id="teams"  v-model="eventData.whatTeam">
-               
-                <option v-for="team in teamNames" v-bind:value="team">{{ team }}</option>
-                
-              </select>
-            </div>
-            
-            <button type="submit">Create Your Event</button>
-            </form>
-          </div> -->
+          
           
 
         

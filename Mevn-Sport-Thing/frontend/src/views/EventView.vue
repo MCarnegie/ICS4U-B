@@ -12,9 +12,10 @@ export default {
     let isthereNoEvents = ref(false);
     const link = document.URL;
     let teamName;
+    let goTo = link.slice(link.lastIndexOf("(") + 1, link.indexOf(")"))
     teamName = link.slice(link.lastIndexOf("league/")+7, link.lastIndexOf("/"))
     console.log(teamName)
-
+    console.log(goTo)
     onMounted(async () => {
       try {
         const response = await axios.get(`${API_URL}/api/league/${teamName}/events`);
@@ -32,7 +33,8 @@ export default {
     return {
       events,
       link,
-      isthereNoEvents
+      isthereNoEvents,
+      goTo
     };
   }
 };
@@ -69,6 +71,9 @@ export default {
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="container is-flex is-justify-content-center">
+              <router-link :to="`/league/${goTo}`"> Go Back</router-link>
             </div>
           </section>
           

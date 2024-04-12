@@ -17,8 +17,9 @@
                     </div>
                     <button type="submit" class="button">Login</button>
                   </form>
+                  <br>
                   <h1 v-if="loginError" class="error-message">{{ loginError }}</h1>
-                  <h1>No account? <RouterLink to="/auth/registier">registier</RouterLink></h1>
+                  <h1>No Account? <RouterLink to="/auth/registier">Register</RouterLink></h1>
               </div>
               
             </div>
@@ -29,7 +30,8 @@
   </template>
   
   <script>
-  import { mapActions } from 'vuex';
+  import router from '@/router';
+import { mapActions } from 'vuex';
 
   export default {
     data() {
@@ -48,7 +50,6 @@
           await this.$store.dispatch('loginUser', { email: this.email, password: this.password });
 
           // If login successful, redirect to dashboard or desired page
-          location.reload()
           this.$router.push({ name: 'home' });
           
         } catch (error) {

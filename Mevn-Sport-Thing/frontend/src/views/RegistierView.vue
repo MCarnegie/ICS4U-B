@@ -4,7 +4,7 @@
           <div class="column is-one-third">
             <div class="card">
               <div class="card-content">
-                  <h1 class="title">Registier New Account</h1>
+                  <h1 class="title">Register New Account</h1>
                   <form @submit.prevent="registier">
                     <div class="field">
                       <label class="label" for="email">Email:</label>
@@ -14,7 +14,7 @@
                       <label class="label" for="password">Password:</label>
                       <input class="input" type="text" id="password" v-model="formData.password" required>
                     </div>
-                    <button type="submit" class="button">registier</button>
+                    <button type="submit" class="button">Register</button>
                   </form>
               </div>
               

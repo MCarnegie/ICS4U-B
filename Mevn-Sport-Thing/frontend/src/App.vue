@@ -49,11 +49,12 @@ import AuthService from '@/services/AuthService';
 import { onMounted } from 'vue';
 import router from './router';
 
+
 export default {
   
     computed: {
       isLoggedIn() {
-
+        
         return this.$store.state.user.isLoggedIn; // Example for Vuex
       },
       username() {
@@ -65,6 +66,7 @@ export default {
         try {
           let token = localStorage.getItem('token')
           token = AuthService.decodeToken(token)
+          console.log(token.role)
           return token.role
         } catch (error) {
           return "regular user"

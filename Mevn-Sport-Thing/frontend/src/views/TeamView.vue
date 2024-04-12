@@ -52,6 +52,10 @@ export default {
                 </tbody>
               </table>
             </div>
+            <div class="container is-flex is-justify-content-center">
+              <router-link :to="'/league'"> Go Back</router-link>
+            </div>
+            
           </section>
           
         </Suspense>

@@ -1,6 +1,8 @@
 <script>
+import router from '@/router';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
 const API_URL = 'http://localhost:3000';
 
@@ -19,9 +21,10 @@ export default {
       }
     });
 
+
     return {
       leagues,
-      link
+      link,
     };
   }
 };
@@ -46,6 +49,10 @@ export default {
                 </tbody>
               </table>
             </div>
+            <div class="container is-flex is-justify-content-center">
+              <router-link :to="'/'"> Go Back</router-link>
+            </div>
+            
           </section>
           
           
