@@ -10,7 +10,6 @@ export default {
   setup() {
     let token = localStorage.getItem('token')
     token = AuthService.decodeToken(token)
-    console.log(token.role)
     let teamNames = ref();
     let leagueNames = ref();
     let teamData = ref({
@@ -84,7 +83,8 @@ export default {
       teamData,
       eventData,
       teamNames,
-      leagueNames
+      leagueNames,
+      token
     };
   }
 };

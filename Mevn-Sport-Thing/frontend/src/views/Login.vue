@@ -50,7 +50,12 @@ import { mapActions } from 'vuex';
           await this.$store.dispatch('loginUser', { email: this.email, password: this.password });
 
           // If login successful, redirect to dashboard or desired page
-          this.$router.push({ name: 'home' });
+          this.$router.push({ name: 'home' })
+          setTimeout(() => {
+            location.reload();
+          }, 50);
+
+          
           
         } catch (error) {
           console.log(error)

@@ -10,7 +10,6 @@ export default {
   setup() {
     let token = localStorage.getItem('token')
     token = AuthService.decodeToken(token)
-    console.log(token.role)
     let teamNames = ref();
     let leagueNames = ref();
     let eventsBasedOffTeam = ref();
@@ -103,14 +102,15 @@ export default {
      deleteTeam,
      deleteEvent,
      teamSelectForEvent,
-     eventsBasedOffTeam
+     eventsBasedOffTeam,
+     token
     };
   }
 };
 </script>
 
 <template>
-    <body>
+    <body >
         <div class="columns is-flex-direcction-column">
             <div class="column is-one-third">
                 <div class="card">

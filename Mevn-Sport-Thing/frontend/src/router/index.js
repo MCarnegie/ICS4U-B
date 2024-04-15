@@ -1,4 +1,17 @@
+
 import { createRouter, createWebHistory } from 'vue-router'
+import DecodeStuff from '@/services/Decode'
+
+        // try {
+        //   token.value = localStorage.getItem('token')
+        //   token.value = AuthService.decodeToken(token.value)
+        //   console.log(token.role + " in try")
+        // } catch (error) {
+          
+        //   token.value = {role: "DOSENT DO ANYTHING"}
+        //   console.log(token.role + " in catch")
+        // }
+
 
 
 const router = createRouter({
@@ -7,7 +20,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('../views/HomeView.vue'),
     },
     {
       path: '/auth/login',
@@ -37,15 +50,32 @@ const router = createRouter({
     {
       path: '/create',
       name: 'create',
-      component: () => import('../views/CreateView.vue')
+      component: () => import('../views/CreateView.vue'),
+      beforeEnter(to, from, next){
+        console.log(DecodeStuff.getTokenRole())
+        if(DecodeStuff.getTokenRole() === 'admin'){
+          next()
+        }else{
+          next('/auth/login')
+        }
+      }
     },
     {
       path: '/delete',
       name: 'delete',
-      component: () => import('../views/DeleteView.vue')
+      component: () => import('../views/DeleteView.vue'),
+      beforeEnter(to, from, next){
+        console.log(DecodeStuff.getTokenRole())
+        if(DecodeStuff.getTokenRole() === 'admin'){
+          next()
+        }else{
+          next('/auth/login')
+        }
+      }
     },
     
   ]
 })
+
 
 export default router

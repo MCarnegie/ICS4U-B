@@ -1,14 +1,5 @@
 
 <template>
-<!-- the things here would just be stuff that goes across all pages (navbar) -->
-      <!-- <nav> 
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/league">Scheduale</RouterLink>
-            <RouterLink to="/auth/login" v-if="!isLoggedIn">Login</RouterLink>
-            <button v-if="isLoggedIn" @click="logout">Logout</button>
-            <RouterLink to="/create" v-if="checkRole === 'admin'">Create New Things</RouterLink>
-            <RouterLink to="/delete" v-if="checkRole === 'admin'">Delete Stuff</RouterLink>
-        </nav> -->
         <header>
         <section class="section">
           <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -20,7 +11,7 @@
                 <RouterLink to="/" class="navbar-item">Home</RouterLink>
                 <RouterLink to="/league" class="navbar-item">Schedule</RouterLink>
                 <RouterLink to="/auth/login" v-if="!isLoggedIn" class="navbar-item">Login</RouterLink>
-                <a href="" @click="logout" v-if="isLoggedIn" class="navbar-item">Logout</a>
+                <RouterLink to="/" @click="logout" v-if="isLoggedIn" class="navbar-item">Logout</RouterLink>
                 <div class="navbar-item has-dropdown is-hoverable" v-if="checkRole === 'admin'">
                   <a class="navbar-link">
                     Admin Stuff
@@ -48,6 +39,7 @@ import { mapActions } from 'vuex';
 import AuthService from '@/services/AuthService';
 import { onMounted } from 'vue';
 import router from './router';
+
 
 
 export default {
@@ -81,8 +73,8 @@ export default {
       ...mapActions(['logoutUser']),
       async logout(){
         await this.$store.dispatch('logoutUser')
-        
         location.reload()
+       
       },
       
       
