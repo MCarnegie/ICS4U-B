@@ -21,9 +21,16 @@ const generateSalt = require('./authentication/saltGenerator');
 
 require('./db');
 
+
 const app = express();
 const PORT  = process.env.PORT || 3000;
-app.use(cors());
+const corsOptions = {
+    origin: 'https://frontend-mevn.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // allow cookies to be sent cross-origin
+  };
+app.use(cors(corsOptions));
 app.use(express.urlencoded({extended:false}))
 app.use(bodyParser.json());
 

@@ -11,7 +11,6 @@ export default {
   //before being retunred since it retunrs immediately
   setup() {
     const leagues = ref(null); 
-    const link = `${API_URL}/api/league`;
     onMounted(async () => {
       try {
         const response = await axios.get(`${API_URL}api/league`);
