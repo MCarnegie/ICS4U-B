@@ -30,6 +30,7 @@
 import { ref, onMounted } from 'vue';
 
 const API_URL = 'https://thing-jv1a.onrender.com/';
+// const API_URL = 'http://localhost:3000';
 
 export default {
 

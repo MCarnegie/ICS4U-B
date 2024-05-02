@@ -5,6 +5,7 @@ import store from '@/stores'
 import AuthService from '@/services/AuthService';
 
 const API_URL = 'https://thing-jv1a.onrender.com/';
+// const API_URL = 'http://localhost:3000';
 
 export default {
   setup() {

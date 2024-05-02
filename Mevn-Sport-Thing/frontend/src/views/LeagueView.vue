@@ -5,7 +5,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const API_URL = 'https://thing-jv1a.onrender.com/';
-
+// const API_URL = 'http://localhost:3000';
 export default {
   //works by having a reactive variable that waits to get teh response for axios 
   //before being retunred since it retunrs immediately
