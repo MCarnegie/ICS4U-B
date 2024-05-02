@@ -19,7 +19,7 @@
                   <div class="navbar-dropdown">
                     <RouterLink to="/create" v-if="checkRole === 'admin'" class="navbar-item">Create New Things</RouterLink>
                     <hr class="navbar-divider">
-                    <RouterLink to="/delete" v-if="checkRole === 'admin'" class="navbar-item">Delete Stuff</RouterLink>
+                    <RouterLink to="/delete" v-if="checkRole === 'admin'" class="navbar-item">Delete Things</RouterLink>
                   </div>
                 </div>
               </div>

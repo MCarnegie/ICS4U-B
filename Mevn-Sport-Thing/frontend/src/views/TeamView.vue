@@ -38,7 +38,7 @@ export default {
         <Suspense>
           <section class="section">
             <div class="container is-flex is-justify-content-center">
-              <table class="table is-centered is-size-4">
+              <table class="table is-centered is-size-4 has-text-centered is-bordered">
                 <thead>
                   <tr>
                     <th>Teams Available</th>

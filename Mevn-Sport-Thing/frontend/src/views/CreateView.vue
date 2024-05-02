@@ -164,7 +164,7 @@ export default {
                     <input type="text"  v-model="eventData.notes" class="input" required>
                   </div>
                   <div class="field">
-                    <label class="label">What team is this for And which team is this league in </label>
+                    <label class="label">Which Team is this For?</label>
                     <div class="select">
                       <select name="teams" id="teams"  v-model="eventData.whatTeam">
                     

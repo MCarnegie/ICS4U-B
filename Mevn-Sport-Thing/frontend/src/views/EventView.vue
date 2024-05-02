@@ -82,9 +82,11 @@ export default {
             <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title" >
-                No Events Avaliable
+                No Events Found
                 </h1>
-                
+                <div class="container is-flex is-justify-content-center">
+                  <router-link :to="`/league/${goTo}`"> Go Back</router-link>
+                </div>
             </div>
             </div>
         </section>

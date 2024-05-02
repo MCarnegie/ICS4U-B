@@ -156,7 +156,7 @@ app.get('/api/specificEvent/:team', async (req, res) =>{
    
     let eventsArr = []
         events.forEach(a =>{
-            eventsArr.push(a.name)
+            eventsArr.push(a.name + ` (${a.date})`)
         })
         console.log(eventsArr)
     res.json(eventsArr)

@@ -34,11 +34,11 @@ export default {
     <body>
         <Suspense>
           <section class="section">
-            <div class="container is-flex is-justify-content-center">
-              <table class="table is-centered is-size-4">
-                <thead>
+            <div class="container is-flex is-justify-content-center has-text-centered">
+              <table class="table is-centered is-size-4 has-text-centered is-bordered">
+                <thead class="">
                   <tr>
-                    <th>Leagues Available</th>
+                    <th>Leagues</th>
                   </tr>
                 </thead>
                 <tbody>
