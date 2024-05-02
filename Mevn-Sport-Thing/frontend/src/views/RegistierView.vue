@@ -29,7 +29,7 @@
   import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
-const API_URL = 'https://backend-of-mevn-scheduale.onrender.com/';
+const API_URL = 'https://backend-of-mevn-scheduale.onrender.com';
 // const API_URL = 'http://localhost:3000';
 
 export default {

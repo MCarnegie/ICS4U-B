@@ -4,7 +4,7 @@ import { ref, onMounted, watch } from 'vue';
 import store from '@/stores'
 import AuthService from '@/services/AuthService';
 
-const API_URL = 'https://backend-of-mevn-scheduale.onrender.com/';
+const API_URL = 'https://backend-of-mevn-scheduale.onrender.com';
 // const API_URL = 'http://localhost:3000';
 
 export default {
