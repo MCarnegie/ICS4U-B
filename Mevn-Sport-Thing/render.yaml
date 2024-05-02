@@ -1,0 +1,27 @@
+services:
+  - name: vue-frontend
+    type: web
+    buildCommand: npm run build
+    env:
+      - name: NODE_ENV
+        value: production
+    github:
+      branch: main
+    envVars:
+      - key: VUE_APP_API_URL
+        fromService:
+          name: node-backend
+          key: publicAddress
+    healthCheckPath: /
+    disk:
+      fromService:
+        name: node-backend
+        path: /dist
+
+  - name: node-backend
+    type: web
+    buildCommand: npm install
+    startCommand: node index.js
+    github:
+      branch: main
+    healthCheckPath: /healthcheck
