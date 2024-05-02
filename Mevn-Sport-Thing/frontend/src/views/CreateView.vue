@@ -4,7 +4,7 @@ import { ref, onMounted } from 'vue';
 import store from '@/stores'
 import AuthService from '@/services/AuthService';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://thing-jv1a.onrender.com/';
 
 export default {
   setup() {
