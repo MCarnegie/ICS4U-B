@@ -63,10 +63,12 @@ export default {
                     <td><strong> {{ event.name }} </strong></td>
                     <td><strong> {{ event.description }} </strong></td>
                     <td><strong> {{ event.time }} </strong></td>
-                    <td><strong> {{ event.location }} </strong></td>
+                    <td><strong> <iframe width="100%" height="200" style="border:0" referrerpolicy="no-referrer-when-downgrade" :src="'https://www.google.com/maps/embed/v1/place?key=AIzaSyC1J8rbjY3B-Y-dzoWU7jl6hAW4jAh-yRk&q=' + encodeURIComponent(event.location)" allowfullscreen></iframe> </strong></td>
                     <td><strong> {{ event.date }} </strong></td>
                     <td><strong> {{ event.teams }} </strong></td>
                     <td><strong> {{ event.notes }} </strong></td>
+                    
+                   
 
                   </tr>
                 </tbody>
@@ -99,3 +101,4 @@ export default {
 <style scoped>
 
 </style>
+
