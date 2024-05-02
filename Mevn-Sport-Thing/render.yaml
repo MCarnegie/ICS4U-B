@@ -1,5 +1,5 @@
 services:
-  - name: node-backend
+  - name: server
     type: web
     buildCommand: npm install && npm run build
     startCommand: node index.js
@@ -7,7 +7,7 @@ services:
       branch: main
     healthCheckPath: /healthcheck
 
-  - name: vue-frontend
+  - name: frontend
     type: web
     buildCommand: cd frontend && npm install && npm run build
     startCommand: npx serve -s dist
