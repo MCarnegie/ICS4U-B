@@ -49,7 +49,6 @@ export default {
                 role: "regular"
                 
             });
-            location.reload()
             console.log("idk if it worked")
         } catch (error) {
             console.error('Error fetching data:', error);
