@@ -4,13 +4,15 @@ import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
-const API_URL = 'https://backend-of-mevn-scheduale.onrender.com';
+const API_URL = 'https://backend-of-mevn-scheduale.onrender.com/';
 // const API_URL = 'http://localhost:3000';
 export default {
   //works by having a reactive variable that waits to get teh response for axios 
   //before being retunred since it retunrs immediately
+ 
   setup() {
     const leagues = ref(null); 
+    let link = `${API_URL}api/league`;
     onMounted(async () => {
       try {
         const response = await axios.get(`${API_URL}api/league`);
