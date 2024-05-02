@@ -29,7 +29,7 @@
   import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
-const API_URL = 'https://thing-jv1a.onrender.com/';
+const API_URL = 'https://backend-of-mevn-scheduale.onrender.com/';
 // const API_URL = 'http://localhost:3000';
 
 export default {
@@ -46,7 +46,7 @@ export default {
             await axios.post(`${API_URL}/auth/register`, {
                 email: formData.value.email,
                 password: formData.value.password,
-                role: "admin"
+                role: "regular"
                 
             });
             location.reload()

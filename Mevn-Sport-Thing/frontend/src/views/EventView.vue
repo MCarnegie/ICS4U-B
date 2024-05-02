@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
-const API_URL = 'https://thing-jv1a.onrender.com/';
+const API_URL = 'https://backend-of-mevn-scheduale.onrender.com/';
 // const API_URL = 'http://localhost:3000';
 
 
@@ -46,7 +46,7 @@ export default {
         <Suspense>
           <section class="section" v-if="!isthereNoEvents">
             <div class="container is-flex is-justify-content-center">
-              <table class="table is-centered is-size-4">
+              <table class="table is-centered is-size-4 is-bordered">
                 <thead>
                   <tr>
                     <th>Name</th>
