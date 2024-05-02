@@ -12,10 +12,10 @@ export default {
  
   setup() {
     const leagues = ref(null); 
-    let link = `${API_URL}api/league`;
+    let link = `${API_URL}/api/league`;
     onMounted(async () => {
       try {
-        const response = await axios.get(`${API_URL}api/league`);
+        const response = await axios.get(`${API_URL}/api/league`);
         leagues.value = response.data; 
       } catch (error) {
         console.error('Error fetching data:', error);
