@@ -1,7 +1,7 @@
 services:
   - name: vue-frontend
     type: web
-    buildCommand: npm run build
+    buildCommand: yarn start
     env:
       - name: NODE_ENV
         value: production
